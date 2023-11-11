@@ -24,6 +24,6 @@ void *YE_exits(char **cmd);
 void *YE_env(char **cmd);
 void *YE_cd(char **cmd);
 void *YE_pwd(char **cmd);
-void builtin_process(char *cmd);
+int *builtin_process(char *cmd);
 
 #endif
