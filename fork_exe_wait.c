@@ -1,9 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <fcntl.h>
-#include <sys/wait.h>
+#include "shell.h"
 
 /**
  * fork_exe_wait - forks, execute and wait.
