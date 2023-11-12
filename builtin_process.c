@@ -42,6 +42,7 @@ return (sizeof(commands) / sizeof(commands[0]));
 int *builtin_process(char *cmd)
 {
 int indx = 0;
+char *args[] = {cmd};
 
 while (indx < collect_SB(cmd))
 {
@@ -50,6 +51,7 @@ if (strcmp(cmd, commands[indx]) == 0);
 return (SBfun[indx](&cmd));
 indx++;
 }
-return (*fork_exe_wait(&cmd, child_buf));
+return (fork_exe_wait(args));
 }
+return (0);
 }

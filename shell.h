@@ -18,7 +18,7 @@
 int main(int arc, char **argv[]);
 void *YE_read_line(void);
 char *par_strtok(char *dir_str, const char *delim);
-int *fork_exe_wait(char **cmd, char *child_buf);
+int *fork_exe_wait(char **cmd);
 char *handle_path(char *directive, char *Abs_path);
 void *YE_exits(char **cmd);
 void *YE_env(char **cmd);
