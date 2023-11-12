@@ -8,9 +8,10 @@
  * Return: Always 0
  */
 
-int *fork_exe_wait(char **cmd, char *child_buf)
+int *fork_exe_wait(char *cmd, char *child_buf)
 {
 pid_t child_pid;
+char *child_buf = 0;
 int status;
 
 child_pid = fork();
@@ -19,9 +20,9 @@ if (child_pid <= 0)
 {
 fprintf(stderr, "Error forking");
 }
-if (execvp(cmd[0], cmd) == -1)
+if (execvp(char *)(cmd[0], cmd) == -1)
 {
-	free(cmd[0]);
+	free((char *)cmd[0]);
 	free(cmd);
 	exit(EXIT_FAILURE);
 }
