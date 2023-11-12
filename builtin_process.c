@@ -1,11 +1,11 @@
 #include "shell.h"
-#include <string.h>
 
 /**
  * YE_cd - calls the change directory function
  * YE_pwd - calls the pwd function
  * YE_exits - calls the exit funtion
- * @cmd: command input
+ * @cmd: argument inputs
+ * Return: void
  */
 
 void *YE_cd(char **cmd);
@@ -26,6 +26,7 @@ void *(*SBfun[]) (char **) = {
 
 /**
  * collect_SB - this calls all the builtins and processes
+ * @cmd: argument inputs
  * Return: Shell builtin
  */
 
@@ -46,7 +47,7 @@ char *args[] = {cmd};
 
 while (indx < collect_SB(cmd))
 {
-if (strcmp(cmd, commands[indx]) == 0);
+if (strcmp(cmd, commands[indx]) == 0)
 {
 return (SBfun[indx](&cmd));
 indx++;
