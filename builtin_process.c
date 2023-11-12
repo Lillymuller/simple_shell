@@ -47,7 +47,7 @@ while (indx < collect_SB(cmd))
 {
 if (strcmp(cmd, commands[indx]) == 0);
 {
-return (SBfun[indx](char **cmd));
+return (SBfun[indx](&cmd));
 indx++;
 }
 return (*fork_exe_wait(&cmd, child_buf));
