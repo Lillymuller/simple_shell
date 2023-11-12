@@ -12,8 +12,8 @@ int main(int arc, char **argv[])
 /* function loop calls */
 	(void)arc, (void)argv;
 	void *YE_read_line(void);
-	char **par_strtok(char *);
-	int fork_exe_wait(char **);
+	char *par_strtok(char **);
+	int *fork_exe_wait(char **);
 /* function declarations */
 	char *RD_LINE, **PARSE_ARGS;
 	int Status, indx;

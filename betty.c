@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
-*Main - open a new shell file
+*Fopen - open a new shell file
 *Return: Always 0
 */
 
-int main(void)
+int Fopen(void)
 {
 	int num_indx = 0;
 	char *buffer;
