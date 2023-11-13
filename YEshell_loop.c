@@ -7,7 +7,7 @@
 *Return: Always 0
 */
 
-int main(int arc, char **argv[])
+int main(int arc, char **argv)
 {
 /* function loop calls */
 	(void)arc, (void)argv;
@@ -17,7 +17,8 @@ int main(int arc, char **argv[])
 	/* function declarations */
 	char *RD_LINE;
 	char **PARSE_ARGS;
-	int Status, indx;
+	int Status;
+	int indx = 0;
 
 	while (1)
 	{

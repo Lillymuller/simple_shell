@@ -4,16 +4,15 @@
  * setenv - sets the environment variable
  * @var: environment variable input
  * @worth: value set to the environment variable
- * @override: overrides the environment variable if NULL
  * Return: 0 for success, otherwise -1
  */
 
-int setenv(const char *var, const char *worth, int override)
+int setenv(const char *var, const char *worth)
 {
 char *possessed_val = getenv(var);
 char *gained_var = malloc(sizeof(strlen(var) + strlen(worth) + 4));
 
-if (var == NULL && worth == NULL)
+if (var == NULL || worth == NULL)
 {
 perror("Error\n");
 exit(EXIT_FAILURE);

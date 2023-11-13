@@ -15,7 +15,7 @@
 
 /*---our prototypes---*/
 
-int main(int arc, char **argv[]);
+int main(int arc, char **argv);
 int Fopen(void);
 void *YE_read_line(void);
 char **par_strtok(char *dir_str, const char *delim);
