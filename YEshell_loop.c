@@ -14,7 +14,8 @@ int main(int arc, char **argv)
 	void *YE_read_line(void);
 	char **par_strtok(char *dir_str, const char *delim);
 	int *fork_exe_wait(char **);
-	/* function declarations */
+
+/* function declarations */
 	char *RD_LINE;
 	char **PARSE_ARGS;
 	int Status;
@@ -40,6 +41,7 @@ int main(int arc, char **argv)
 		}
 		(Status = (int)*fork_exe_wait(PARSE_ARGS));
 		indx++;
+		
 		if ((int)Status == 0)
 		{
 			free(PARSE_ARGS);
