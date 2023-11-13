@@ -56,3 +56,19 @@ return (fork_exe_wait(args));
 }
 return (0);
 }
+
+/**
+*This - code is a long one that shows
+*a multiple functions or process.
+*command[3] is an open array that holds three
+* elements or arguments.
+*SBfun[] is also an open arry that only holds three
+*elements, it is holding address og the commands that
+*we want to call back.
+*collect_SB is a prototype thatcalls our shell builtin
+* and process.
+*the lat prototype builtin_process, this compaines
+*our shell builtins and process. meaning that
+*if the argument doesnt match the shell buitin commands
+*given then it will run our process.
+*/
