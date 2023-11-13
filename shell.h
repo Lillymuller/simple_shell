@@ -26,5 +26,8 @@ void *YE_env(char **cmd);
 void *YE_cd(char **cmd);
 void *YE_pwd(char **cmd);
 int *builtin_process(char *cmd);
+int setenv(const char *var, const char *worth, int override);
+int unsetenv(const char *var);
+void *read_directive(void);
 
 #endif
