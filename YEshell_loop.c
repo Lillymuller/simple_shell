@@ -7,7 +7,8 @@
 */
 int main(int arc, char **argv)
 {
-	void *YE_read_line(void);/* function loop calls */
+	/* function loop calls */
+	void *YE_read_line(void);
 	char **par_strtok(char *dir_str, const char *delim);
 	int *fork_exe_wait(char **);
 	char *RD_LINE; /* function declarations */
@@ -30,7 +31,6 @@ int main(int arc, char **argv)
 		{
 			perror("Error");
 			free(RD_LINE);
-			return (0);
 		}
 		(Status = (int)*fork_exe_wait(PARSE_ARGS));
 		indx++;
@@ -38,23 +38,20 @@ int main(int arc, char **argv)
 		{
 			free(PARSE_ARGS);
 			free(RD_LINE);
-			return (0);
 		}
 		if (isatty(STDIN_FILENO) == -1)
 		{
 			write(1, "\n", 1);
 			return (EXIT_SUCCESS);
 		}
+
 		return (0);
-}
+	}
 }
 /**
-*This - is our main.
-*RD_LINE - read input from stream
-*PARSE_ARGS - splits the input when delimi
-*IS found and replaces it with \0
+*This - is our main.RD_LINE - read input from stream
+*PARSE_ARGS - splits the input when delimi,iS found and replaces it with \0
 *Status - executes data comparing the builtin
 *shell commands and assigned processes
-*and free the static strings
-*(RD_LINE & PARSE_ARGS)
+*and free the static strings(RD_LINE & PARSE_ARGS)
 */
