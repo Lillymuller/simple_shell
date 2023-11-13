@@ -20,8 +20,7 @@ exit(EXIT_FAILURE);
 }
 }
 do {
-perror("Error\n");
-exit(EXIT_FAILURE);
-} while (possessed_var == NULL);
+exit(EXIT_SUCCESS);
+} while (possessed_var != NULL);
 unsetenv(var);
 }

@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "shell.h"
 
 /**
  * par_strtok - gives the tokenized string
@@ -9,7 +7,7 @@
  * Return: the tokenized string
  */
 
-char *par_strtok(char *dir_str, const char *delim)
+char **par_strtok(char *dir_str, const char *delim)
 {
 int str_size = 64;
 int indx_cnt = 0;
@@ -27,11 +25,11 @@ for (indx_cnt = 0; parsed != NULL; indx_cnt++)
 tok_size[indx_cnt] = parsed;
 parsed = strpbrk(dir_str + 1, delim);
 }
-if (!tok_size)
+if (tok_size == NULL)
 {
 perror("Error\n");
 exit(EXIT_FAILURE);
 }
 tok_size[indx_cnt] = NULL;
-return (*tok_size);
+return ((char **)tok_size);
 }

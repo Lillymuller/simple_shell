@@ -30,8 +30,7 @@ putenv(gained_var);
 }
 
 do {
-perror("Error\n");
-exit(EXIT_FAILURE);
+exit(EXIT_SUCCESS);
 } while (gained_var != NULL);
 
 sprintf(gained_var, "%s%s", var, worth);
