@@ -10,7 +10,6 @@
 int main(int arc, char **argv)
 {
 /* function loop calls */
-	(void)arc, (void)argv;
 	void *YE_read_line(void);
 	char **par_strtok(char *dir_str, const char *delim);
 	int *fork_exe_wait(char **);
@@ -20,6 +19,8 @@ int main(int arc, char **argv)
 	char **PARSE_ARGS;
 	int Status;
 	int indx = 0;
+	char *delim = " ";
+	(void)arc, (void)argv;
 
 	while (1)
 	{
@@ -29,8 +30,6 @@ int main(int arc, char **argv)
 			perror(" Enter arguments");
 			exit(0);
 		}
-		char *delim = " ";
-
 		PARSE_ARGS = par_strtok(RD_LINE, delim);
 		indx++;
 		if (PARSE_ARGS == NULL)
