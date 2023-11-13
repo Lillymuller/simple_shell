@@ -14,9 +14,8 @@ int main(int arc, char **argv[])
 	void *YE_read_line(void);
 	char **par_strtok(char *dir_str, const char *delim);
 	int *fork_exe_wait(char **);
-
 	/* function declarations */
-	char *RD_LINE; 
+	char *RD_LINE;
 	char **PARSE_ARGS;
 	int Status, indx;
 
@@ -29,6 +28,7 @@ int main(int arc, char **argv[])
 			exit(0);
 		}
 		char *delim = " ";
+
 		PARSE_ARGS = par_strtok(RD_LINE, delim);
 		indx++;
 		if (PARSE_ARGS == NULL)
@@ -55,9 +55,10 @@ int main(int arc, char **argv[])
 }
 
 /**
+*This - is our main.
 *RD_LINE - read input from stream
 *PARSE_ARGS - splits the input when delimi
-* is found and replaces it with \0
+*IS found and replaces it with \0
 *Status - executes data comparing the builtin
 *shell commands and assigned processes
 *and free the static strings

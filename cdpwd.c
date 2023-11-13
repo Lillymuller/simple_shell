@@ -38,3 +38,10 @@ fprintf(stderr, "Error getting absolute pathname");
 }
 return (0);
 }
+
+/**
+*This - is a code that gets change directory process
+* and that shows the absolute pathname.
+*we used the chdir() system call to get' cd'.
+*and the getcwd() system call for 'pwd'.
+*/
