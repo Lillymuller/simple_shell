@@ -1,27 +1,21 @@
 #include "shell.h"
-
 /**
-*main - Shell entry loop
-*@arc: argument count
-*@argv: argument variables
-*Return: Always 0
+* main - Shell entry loop
+* @arc: argument count
+* @argv: argument variables
+* Return: Always 0
 */
-
 int main(int arc, char **argv)
 {
-/* function loop calls */
-	void *YE_read_line(void);
+	void *YE_read_line(void);/* function loop calls */
 	char **par_strtok(char *dir_str, const char *delim);
 	int *fork_exe_wait(char **);
-
-/* function declarations */
-	char *RD_LINE;
+	char *RD_LINE; /* function declarations */
 	char **PARSE_ARGS;
 	int Status;
 	int indx = 0;
 	char *delim = " ";
 	(void)arc, (void)argv;
-
 	while (1)
 	{
 		RD_LINE = YE_read_line();
@@ -40,7 +34,6 @@ int main(int arc, char **argv)
 		}
 		(Status = (int)*fork_exe_wait(PARSE_ARGS));
 		indx++;
-		
 		if ((int)Status == 0)
 		{
 			free(PARSE_ARGS);
@@ -55,7 +48,6 @@ int main(int arc, char **argv)
 		return (0);
 }
 }
-
 /**
 *This - is our main.
 *RD_LINE - read input from stream
