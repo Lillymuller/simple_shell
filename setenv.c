@@ -28,12 +28,12 @@ else
 {
 putenv(gained_var);
 }
+sprintf(gained_var, "%s%s", var, worth);
 
 do {
-exit(EXIT_SUCCESS);
-} while (gained_var != NULL);
-
-sprintf(gained_var, "%s%s", var, worth);
+perror("Error\n");
+exit(EXIT_FAILURE);
+} while (gained_var == NULL);
 }
 
 
@@ -45,4 +45,5 @@ sprintf(gained_var, "%s%s", var, worth);
  * then exits with success unless it puts new variable gained_var and when,
  * the gained_var exists it prints the value of the new and previous variable.
  * by adding the size of the gained_var the new variable.
+ * and if the new variable doesn't exist it prints error and exits.
  */
