@@ -39,6 +39,7 @@ void *read_directive(void)
 			perror("Error");
 		return (NULL);
 	}
+	return (0);
 }
 
 /**
