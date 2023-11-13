@@ -6,7 +6,7 @@
 *@cmd: command input
 *Return: Always 0
 */
-void *YE_exits(char **cmd)
+void *YE_exits(void)
 {
 	fprintf(stderr, "Exiting process ....");
 	exit(0);
