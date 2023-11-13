@@ -8,7 +8,7 @@
 
 void *YE_cd(char **cmd)
 {
-if (cmd[1] == NULL)
+if (cmd[0] == NULL)
 {
 perror("Error");
 }
