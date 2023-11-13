@@ -28,3 +28,12 @@ int Fopen(void)
 	}
 	return (0);
 }
+
+/**
+ * start - begins the opening of a file in read mode, if the file exists.
+ * otherwise it will create a new file with read mode.
+ * it allocates memory with buff_size because we are using fgets() function.
+ * it closes the opened file and prints the number of charcters,
+ * used in the file.
+ * then returns zero.
+ */
