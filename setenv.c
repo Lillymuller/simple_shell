@@ -35,3 +35,14 @@ exit(EXIT_SUCCESS);
 
 sprintf(gained_var, "%s%s", var, worth);
 }
+
+
+/**
+ * possessed_val - is the existing value of the environment variable.
+ * when the environment variable and its value doesn't exist it prints error.
+ * but when it exists it sets the environment variable's value.
+ * and also overwrites the value of the variable represented by 1.
+ * then exits with success unless it puts new variable gained_var and when,
+ * the gained_var exists it prints the value of the new and previous variable.
+ * by adding the size of the gained_var the new variable.
+ */

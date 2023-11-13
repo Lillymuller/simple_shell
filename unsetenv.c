@@ -24,3 +24,11 @@ exit(EXIT_SUCCESS);
 } while (possessed_var != NULL);
 unsetenv(var);
 }
+
+/**
+ * possessed_var - assigns the variable with its value.
+ * when the index is zero and less than 1, it is  incremented.
+ * when the variable doesn't exist it prints error and exits.
+ * but when the the possessed_var exists it unsets the environment variable.
+ * then it exits with success.
+ */
