@@ -21,7 +21,7 @@ void *YE_read_line(void);
 char **par_strtok(char *dir_str, const char *delim);
 int *fork_exe_wait(char **cmd);
 char *handle_path(char *directive, char *Abs_path);
-void *YE_exits(char **cmd);
+void *YE_exits(void);
 void *YE_env(char **cmd);
 void *YE_cd(char **cmd);
 void *YE_pwd(char **cmd);
