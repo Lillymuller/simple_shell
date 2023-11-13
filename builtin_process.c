@@ -10,7 +10,7 @@
 
 void *YE_cd(char **cmd);
 void *YE_pwd(char **cmd);
-void *YE_exits(void);
+void *YE_exits(char **cmd);
 
 void *commands[3] = {
 	"cd",
@@ -21,18 +21,17 @@ void *commands[3] = {
 void *(*SBfun[]) (char **) = {
 	&YE_cd,
 	&YE_pwd,
-	&YE_exits
+	&YE_exits,
 };
 
 /**
  * collect_SB - this calls all the builtins and processes
- * @cmd: argument inputs
  * Return: Shell builtin
  */
 
-int collect_SB(char *cmd)
+int collect_SB(char *commands)
 {
-return (sizeof(commands) / sizeof(commands[0]));
+return (sizeof(commands) / sizeof(char *));
 }
 
 /**
@@ -43,9 +42,10 @@ return (sizeof(commands) / sizeof(commands[0]));
 int *builtin_process(char *cmd)
 {
 int indx = 0;
-char *args[] = {cmd};
+char **args = malloc(sizeof("cmd") + 1);
+strcpy((char *)args[0], "cmd");
 
-while (indx < collect_SB(cmd))
+while (indx < collect_SB((char *)commands))
 {
 if (strcmp(cmd, commands[indx]) == 0)
 {

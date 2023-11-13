@@ -10,7 +10,6 @@
 int *fork_exe_wait(char **cmd)
 {
 pid_t child_pid;
-char *child_buf = 0;
 int status;
 
 child_pid = fork();
