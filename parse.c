@@ -33,3 +33,19 @@ exit(EXIT_FAILURE);
 tok_size[indx_cnt] = NULL;
 return ((char **)tok_size);
 }
+
+/**
+*This - code takes a string of input of stream
+*and also the deliminaters.
+*str_size is the memory size allocated for
+*the command.
+*indx_cnt is indecatore of the charaters
+*enterd.
+*we used strpbrk insted of strtok
+*Both functions are used to extract parts
+*of a string based on specific criteria.
+*in the second parse we are adding 1
+*to dir_str inorder strpbk start
+*seacrching from the secound
+*charater.
+*/

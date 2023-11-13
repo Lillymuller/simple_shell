@@ -40,3 +40,21 @@ void *read_directive(void)
 		return (NULL);
 	}
 }
+
+/**
+*This - code reads a line of arguments
+*from the stream without using
+*getline function to read line
+*and allocate memory automatically.
+* we assigned a buffer-size,
+*and allocated extra memory.
+*indx is our indicater and
+* a is our character counter.
+* if a is not equal to EOF
+* or '\0' it will print our
+*charater.
+* if charaters to be indicated are
+*more than the buffer_size given
+* then we will reloccate it to a
+*new memory.
+*/
