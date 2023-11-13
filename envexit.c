@@ -34,3 +34,9 @@ void *YE_env(char **cmd)
 	}
 	return (0);
 }
+
+/**
+* this - code shows the exit shell builtin
+*command and "getenv()" system call that
+*the enviroment information.
+*/
