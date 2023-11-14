@@ -7,24 +7,24 @@
 
 int Fopen(void)
 {
-	int num_indx = 0;
-	char *buffer;
+	int indx = 0;
+	char *buff;
 	FILE *start = fopen("my_simple_shell.txt", "r");
 
 	if (start == NULL)
 	{
-		return (1);
+		return (0);
 	}
 	else
 	{
-		char buf_size[1024];
+		char buf_size[600];
 
 		do {
-			num_indx++;
-		} while (fgets(buf_size, sizeof(buffer), start) != NULL)
+			indx++;
+		} while (fgets(buf_size, sizeof(buff), start) != NULL)
 		;
 		fclose(start);
-		printf(" The file contains %d indx\n", num_indx);
+		printf(" New file has %d indx\n", indx);
 	}
 	return (0);
 }
