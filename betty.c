@@ -8,24 +8,21 @@
 int Fopen(void)
 {
 	int indx = 0;
-	char *buff;
-	FILE *start = fopen("my_simple_shell.txt", "r");
+	char *start = (char *)fopen("my_simple_shell.txt", "r");
+	size_t buff;
 
 	if (start == NULL)
 	{
 		return (0);
 	}
-	else
-	{
-		char buf_size[600];
 
 		do {
 			indx++;
-		} while (fgets(buf_size, sizeof(buff), start) != NULL)
+		} while (getline(&start, &buff, stdin) != 0)
 		;
-		fclose(start);
+		fclose((FILE *)start);
 		printf(" New file has %d indx\n", indx);
-	}
+
 	return (0);
 }
 
