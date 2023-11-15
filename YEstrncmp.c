@@ -11,7 +11,7 @@ void *YE_strncmp(char *x, char *y)
 {
 int a = 0;
 int b = 0;
-int s;
+int s = 0;
 
 while (x[b] != '\0' || b < s)
 {

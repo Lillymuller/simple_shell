@@ -36,5 +36,6 @@ void *YE_strcat(char *field, char *tank);
 void *YE_strcmp(char *x, char *y);
 void *YE_strcpy(char *field, char *tank);
 void *YE_strlen(char *n);
+void *YE_strncmp(char *x, char *y);
 
 #endif
