@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * YEstrcat - prints the string input
+ * YE_strcat - prints the string input
  * @field: states the destination of a string
  * @tank: states the storage of the string
  * Return: destination of the string
  */
 
-void *YEstrcat(char *field, char *tank)
+void *YE_strcat(char *field, char *tank)
 {
 int a = 0;
 int b = 0;
