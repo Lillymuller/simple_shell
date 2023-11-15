@@ -31,6 +31,7 @@ while (WIFCONTINUED(status) && WIFSIGNALED(status) != 0)
 {
 	waitpid(child_pid, &status, WUNTRACED); /* wait(pid_t, int *, int) */
 }
+exit(0);
 return (0);
 }
 
