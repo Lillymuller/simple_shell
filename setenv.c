@@ -34,9 +34,9 @@ exit(EXIT_FAILURE);
 }
 
 strcpy(buff, gained_var);
-free(gained_var);
-
 putenv(buff);
+
+free(gained_var);
 free(buff);
 
 return (0);
