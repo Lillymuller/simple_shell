@@ -10,7 +10,7 @@
 
 void *YE_cd(char **cmd);
 void *YE_pwd(char **cmd);
-void *YE_exits(char **cmd);
+void *YE_exits(char **cmd, char **exit_buff);
 
 void *commands[3] = {
 	"cd",
@@ -19,9 +19,9 @@ void *commands[3] = {
 };
 
 void *(*SBfun[]) (char **) = {
-	&YE_cd,
-	&YE_pwd,
-	&YE_exits,
+	YE_cd,
+	YE_pwd,
+	YE_exits,
 };
 
 /**

@@ -16,7 +16,6 @@ void *YE_read_line(void)
 	if (isatty(STDIN_FILENO) == 1)
 	{
 		write(1, "cisfun$ ", 8);
-		return (EXIT_SUCCESS);
 	}
 
 	line = (getline(&RD_LINE, &memo_size, stdin));
