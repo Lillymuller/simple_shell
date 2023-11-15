@@ -18,10 +18,10 @@ void *commands[3] = {
 	"exits",
 };
 
-void *(*SBfun[]) (char **, char *) = {
-	YE_cd,
-	YE_pwd,
-	YE_exits,
+void *(*SBfun[]) (char **) = {
+	&YE_cd,
+	&YE_pwd,
+	&YE_exits,
 };
 
 /**
@@ -45,7 +45,6 @@ int *builtin_process(char *cmd)
 {
 char **eco = NULL;
 int indx = 0;
-char **exit_buff = NULL;
 char **args = malloc(sizeof("cmd") + 1);
 strcpy((char *)args[0], "cmd");
 
@@ -53,7 +52,7 @@ while (indx < collect_SB((char *)commands))
 {
 if (strcmp(cmd, commands[indx]) == 0)
 {
-return (SBfun[indx](&cmd, &exit_buff));
+return (SBfun[indx](&cmd));
 indx++;
 }
 return (fork_exe_wait(args, eco));
