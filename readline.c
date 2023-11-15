@@ -40,6 +40,7 @@ void *read_directive(void)
 		free(buff);
 		return (NULL);
 	}
+	free(buff);
 	return (0);
 }
 

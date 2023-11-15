@@ -11,6 +11,8 @@ void *YE_read_line(void)
 	ssize_t line;
 	size_t memo_size = 0;
 
+	int isatty(int fd);
+
 	if (isatty(STDIN_FILENO) == 1)
 	{
 		write(1, "cisfun$ ", 8);
