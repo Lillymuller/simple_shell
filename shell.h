@@ -32,5 +32,6 @@ int setenv(const char *var, const char *worth, int overwrite);
 int unsetenv(const char *var);
 void *read_directive(void);
 int collect_SB(char *commands);
+void *YEstrcat(char *field, char *tank);
 
 #endif
