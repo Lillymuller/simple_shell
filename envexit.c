@@ -8,20 +8,16 @@
 */
 void *YE_exits(char **cmd, char **exit_buff)
 {
-	int exits = 0;
-	int opp;
 
-	if (cmd[0] == NULL)
+	if (!cmd[0])
 	{
-	 free(exit_buff);
 	 free(cmd);
-	 exit(exits);
+	 free(exit_buff);
+	 exit(0);
 	}
 	else
 	{
-opp = *cmd[0];
-free(cmd);
-exit(opp);
+exit(*cmd[0]);
 }
 }
 
