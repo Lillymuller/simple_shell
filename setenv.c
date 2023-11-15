@@ -28,12 +28,14 @@ else
 {
 putenv(gained_var);
 }
-sprintf(gained_var, "%s%s", var, worth);
+sprintf(gained_var, "%s=%s", var, worth);
 
 do {
 perror("Error\n");
 exit(EXIT_FAILURE);
 } while (gained_var == NULL);
+
+free(gained_var);
 }
 
 
