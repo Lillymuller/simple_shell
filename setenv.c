@@ -34,6 +34,8 @@ do {
 perror("Error\n");
 exit(EXIT_FAILURE);
 } while (gained_var == NULL);
+
+free(gained_var);
 }
 
 
