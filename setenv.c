@@ -11,25 +11,25 @@
 int setenv(const char *var, const char *worth, int overwrite)
 {
 char *possessed_val = getenv(var);
-char *gained_var = malloc(sizeof(strlen(var) + strlen(worth) + 4));
+char *gained_var;
 
-if (possessed_val != NULL)
+if (possessed_val != NULL && !overwrite)
 {
-setenv(var, worth, overwrite);
 exit(EXIT_SUCCESS);
 }
-else
-{
-putenv(gained_var);
-}
-sprintf(gained_var, "%s=%s", var, worth);
 
-do {
+gained_var = malloc(sizeof(strlen(var) + strlen(worth) + 4));
+
+if (gained_var == NULL)
+{
 perror("Error\n");
 exit(EXIT_FAILURE);
-} while (gained_var == NULL);
-
+}
+putenv(gained_var);
+sprintf(gained_var, "%s=%s", var, worth);
 free(gained_var);
+
+return (0);
 }
 
 
