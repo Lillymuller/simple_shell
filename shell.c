@@ -10,12 +10,13 @@ int main(int arc, char **argv)
 	/* function loop calls */
 	void *YE_read_line(void);
 	char **par_strtok(char *dir_str, char *parsed);
-	int *fork_exe_wait(char **);
+	int *fork_exe_wait(char **cmd, char **eco);
 	char *RD_LINE; /* function declarations */
 	char **PARSE_ARGS;
 	int Status;
 	int indx = 0;
 	char *delim = " ";
+	char **eco = NULL;
 	(void)arc, (void)argv;
 	while (1)
 	{
@@ -32,7 +33,7 @@ int main(int arc, char **argv)
 			perror("Error");
 			free(RD_LINE);
 		}
-		(Status = (int)*fork_exe_wait(PARSE_ARGS));
+		(Status = (int)*fork_exe_wait(PARSE_ARGS, eco));
 		indx++;
 		if ((int)Status == 0)
 		{

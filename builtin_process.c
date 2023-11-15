@@ -42,6 +42,7 @@ return (sizeof(commands) / sizeof(char *));
  */
 int *builtin_process(char *cmd)
 {
+char **eco = NULL;
 int indx = 0;
 char **args = malloc(sizeof("cmd") + 1);
 strcpy((char *)args[0], "cmd");
@@ -53,7 +54,7 @@ if (strcmp(cmd, commands[indx]) == 0)
 return (SBfun[indx](&cmd));
 indx++;
 }
-return (fork_exe_wait(args));
+return (fork_exe_wait(args, eco));
 }
 return (0);
 }
