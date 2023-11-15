@@ -6,13 +6,12 @@
  * @parsed: the tokonazied arguments
  * Return: the tokenized string
  */
-
+#define delim "\t\n\r\a"
 char **par_strtok(char *dir_str, char *parsed)
 {
-int str_size = 64;
+int str_size = 1024;
 int indx_cnt = 0;
 char **tok_size = malloc(str_size * sizeof(char *));
-char *delim = "\t\n\r\a";
 
 if (indx_cnt >= str_size)
 {
@@ -29,9 +28,12 @@ if (tok_size == NULL)
 {
 perror("Error\n");
 exit(EXIT_FAILURE);
+free(tok_size);
 }
 tok_size[indx_cnt] = NULL;
 return ((char **)tok_size);
+free(tok_size);
+free(parsed);
 }
 
 /**

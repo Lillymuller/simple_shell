@@ -13,6 +13,8 @@
 # include <sys/stat.h>
 # include <sys/wait.h>
 
+/*---macros---*/
+#define delime "\t\r\n\a"
 /*---our prototypes---*/
 
 int main(int arc, char **argv);

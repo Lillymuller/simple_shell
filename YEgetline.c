@@ -13,7 +13,7 @@ void *YE_read_line(void)
 
 	if (isatty(STDIN_FILENO) == -1)
 	{
-		write(1, "cisfun$ ", 9);
+		write(1, "cisfun$ ", 8);
 		return (EXIT_SUCCESS);
 	}
 
