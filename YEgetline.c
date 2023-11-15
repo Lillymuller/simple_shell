@@ -35,7 +35,7 @@ void *YE_read_line(void)
 }
 
 /**
-* RD_LINE: reads from the stream meaning stdin.
+* RD_LINE - reads from the stream meaning stdin.
 * memo_size: stores the allocated size in bytes.
 * the two if and else if condition checks if the end of
 * file has been reached.
