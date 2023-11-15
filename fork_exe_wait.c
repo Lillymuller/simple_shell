@@ -17,7 +17,7 @@ child_pid = fork();
 
 if (child_pid <= 0)
 {
-fprintf(stderr, "Error forking");
+perror("Error\n");
 }
 if (execve(cmd[0], cmd, eco) == -1)
 {
