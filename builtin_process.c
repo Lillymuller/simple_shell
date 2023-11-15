@@ -26,6 +26,7 @@ void *(*SBfun[]) (char **) = {
 
 /**
  * collect_SB - this calls all the builtins and processes
+ * @commands: argument input
  * Return: Shell builtin
  */
 
