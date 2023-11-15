@@ -24,16 +24,7 @@ void *YE_read_line(void)
 		return (0);
 	}
 
-		if (feof(stdin) != '\0')
-		{
-			perror("RD_LINE");
-			exit(EXIT_FAILURE);
-		}
-		else if (feof(stdin) == '\0')
-		{
-			free(RD_LINE);
-		}
-	return (0);
+	return (RD_LINE);
 }
 
 /**

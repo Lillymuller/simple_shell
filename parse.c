@@ -3,16 +3,16 @@
 /**
  * par_strtok - gives the tokenized string
  * @dir_str: string that the user inputs
- * @delim: the delimeter used for parsing
+ * @parsed: the tokonazied arguments
  * Return: the tokenized string
  */
 
-char **par_strtok(char *dir_str, const char *delim)
+char **par_strtok(char *dir_str, char *parsed)
 {
 int str_size = 64;
 int indx_cnt = 0;
 char **tok_size = malloc(str_size * sizeof(char *));
-char *parsed;
+char *delim = "\t\n\r\a";
 
 if (indx_cnt >= str_size)
 {

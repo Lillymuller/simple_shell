@@ -9,7 +9,7 @@ int main(int arc, char **argv)
 {
 	/* function loop calls */
 	void *YE_read_line(void);
-	char **par_strtok(char *dir_str, const char *delim);
+	char **par_strtok(char *dir_str, char *parsed);
 	int *fork_exe_wait(char **);
 	char *RD_LINE; /* function declarations */
 	char **PARSE_ARGS;
