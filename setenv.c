@@ -28,7 +28,7 @@ else
 {
 putenv(gained_var);
 }
-sprintf(gained_var, "%s%s", var, worth);
+sprintf(gained_var, "%s=%s", var, worth);
 
 do {
 perror("Error\n");
