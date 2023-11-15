@@ -8,19 +8,22 @@
 void *YE_read_line(void)
 {
 	char *RD_LINE;
+	ssize_t line;
 	size_t memo_size = 0;
-
-	int isatty(int fd);
 
 	if (isatty(STDIN_FILENO) == -1)
 	{
-		write(1, "$ ", 3);
+		write(1, "cisfun$ ", 9);
 		return (EXIT_SUCCESS);
 	}
 
-	while (getline(&RD_LINE, &memo_size, stdin))
-		;
+	line = (getline(&RD_LINE, &memo_size, stdin));
+	if (line == -1)
 	{
+		free(RD_LINE);
+		return (0);
+	}
+
 		if (feof(stdin) != '\0')
 		{
 			perror("RD_LINE");
@@ -30,7 +33,6 @@ void *YE_read_line(void)
 		{
 			free(RD_LINE);
 		}
-	}
 	return (0);
 }
 
