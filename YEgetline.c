@@ -9,7 +9,7 @@ void *YE_read_line(void)
 {
 	char *RD_LINE;
 	size_t memo_size = 0;
-
+	
 	int isatty(int fd);
 
 	if (isatty(STDIN_FILENO) == -1)
