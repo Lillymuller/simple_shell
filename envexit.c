@@ -8,13 +8,13 @@
 void *YE_exits(char **cmd)
 {
 
-	if (!cmd[0])
-	{
-	 free(cmd);
-	 exit(0);
-	}
-	else
-	{
+if (!cmd[0])
+{
+free(cmd);
+exit(0);
+}
+else
+{
 exit(*cmd[0]);
 }
 }
