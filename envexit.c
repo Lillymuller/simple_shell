@@ -7,16 +7,16 @@
 */
 void *YE_exits(char **cmd)
 {
-	int exits = 0;
-	int opp;
+int exits = 0;
+int opp;
 
-	if (cmd[0] == NULL)
-	{
-	 free(cmd);
-	 exit(exits);
-	}
-	else
-	{
+if (cmd[0] == NULL)
+{
+free(cmd);
+exit(exits);
+}
+else
+{
 opp = *cmd[0];
 free(cmd);
 exit(opp);
