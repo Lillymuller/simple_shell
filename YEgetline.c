@@ -13,9 +13,9 @@ void *YE_read_line(void)
 	
 	int isatty(int fd);
 
-	if (isatty(STDIN_FILENO) == -1)
+	if (isatty(STDIN_FILENO) == 1)
 	{
-		write(1, "cisfun$ ", 9);
+		write(1, "cisfun$ ", 8);
 		return (EXIT_SUCCESS);
 	}
 
@@ -26,16 +26,7 @@ void *YE_read_line(void)
 		return (0);
 	}
 
-		if (feof(stdin) != '\0')
-		{
-			perror("RD_LINE");
-			exit(EXIT_FAILURE);
-		}
-		else if (feof(stdin) == '\0')
-		{
-			free(RD_LINE);
-		}
-	return (0);
+	return (RD_LINE);
 }
 
 /**

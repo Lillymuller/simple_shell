@@ -37,6 +37,7 @@ void *read_directive(void)
 		buff = realloc(buff, buffer_size);
 		if (buff == NULL)
 			perror("Error");
+		free(buff);
 		return (NULL);
 	}
 	free(buff);

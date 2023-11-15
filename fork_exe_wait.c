@@ -4,10 +4,11 @@
  * fork_exe_wait - forks, execute and wait.
  * returns the exit status of the child process.
  * @cmd: this the arguments
+ * @eco: this is the enviroment.
  * Return: Always 0
  */
 
-int *fork_exe_wait(char **cmd)
+int *fork_exe_wait(char **cmd, char **eco)
 {
 pid_t child_pid;
 int status;
@@ -18,10 +19,11 @@ if (child_pid <= 0)
 {
 fprintf(stderr, "Error forking");
 }
-if (execvp(cmd[0], cmd) == -1)
+if (execve(cmd[0], cmd, eco) == -1)
 {
 	free(cmd[0]);
 	free(cmd);
+	free(eco);
 	exit(EXIT_FAILURE);
 }
 
@@ -34,7 +36,7 @@ return (0);
 
 /**
  * The code - forks the parent process and creats the child.
- * execvp() function is used for it takes two arguments
+ * execve() function is used for it takes two arguments
  * the name of the command to be executed and an array of
  * strings containing the command and its arguments.
  * execvp() function is used to replace the child process running
