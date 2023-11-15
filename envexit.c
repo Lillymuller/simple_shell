@@ -23,15 +23,17 @@ void *YE_exits(char **cmd)
 
 void *YE_env(char **cmd)
 {
-	char *envir = getenv("PATH");
+	int indx = 0; 
+	int count = 0;
 
-	if (cmd[0] == NULL)
+	if (cmd[indx] == NULL)
 	{
 		perror("Error finding the path....");
 	}
 	else
 	{
-		printf("%s", envir);
+		write(1, cmd[indx], count);
+		write(1, "\n", 1);
 	}
 	return (0);
 }
