@@ -16,5 +16,5 @@ while (x[indx] == y[indx] && x[indx] != '\0')
 indx++;
 }
 
-exit(0);
+return ((void *) ((long) x[indx] - (long) y[indx]));
 }
