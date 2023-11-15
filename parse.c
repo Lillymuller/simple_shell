@@ -3,26 +3,27 @@
 /**
  * par_strtok - gives the tokenized string
  * @dir_str: string that the user inputs
- * @parsed: the tokonazied arguments
+ * @delimiters: this are deliminators
  * Return: the tokenized string
  */
-#define delim "\t\n\r\a"
-char **par_strtok(char *dir_str, char *parsed)
+
+char **par_strtok(char *dir_str, char *delimiters)
 {
 int str_size = 1024;
 int indx_cnt = 0;
+char *parsed;
 char **tok_size = malloc(str_size * sizeof(char *));
 
 if (indx_cnt >= str_size)
 {
-str_size = (str_size + 64);
+str_size = (str_size + 1024);
 tok_size = realloc(tok_size, str_size *sizeof(char *));
 }
-parsed = strpbrk(dir_str, delim);
+parsed = strpbrk(dir_str, delimiters);
 for (indx_cnt = 0; parsed != NULL; indx_cnt++)
 {
 tok_size[indx_cnt] = parsed;
-parsed = strpbrk(dir_str + 1, delim);
+parsed = strpbrk(dir_str + 1, delimiters);
 }
 if (tok_size == NULL)
 {

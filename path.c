@@ -35,7 +35,6 @@ char *handle_path(char *directive, char *Abs_path)
 	if (!file_locate)
 		free(Abs_path);
 	return (0);
-
 	do {
 		tok_size = strlen(tokenize);
 		strcpy(file_locate, tokenize);
@@ -45,7 +44,6 @@ char *handle_path(char *directive, char *Abs_path)
 	if (stat(file_locate, &stat_buff) == 0)
 		free(duplicate);
 	return (NULL);
-
 	tokenize = strtok(NULL, ":");
 	free(duplicate);
 	free(tokenize);

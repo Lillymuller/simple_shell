@@ -23,7 +23,7 @@ void *YE_exits(char **cmd)
 
 void *YE_env(char **cmd)
 {
-	int indx = 0; 
+	int indx = 0;
 	int count = 0;
 
 	if (cmd[indx] == NULL)

@@ -7,7 +7,7 @@
 # include <unistd.h>
 # include <string.h>
 # include <fcntl.h>
- 
+
 /*---system calls---*/
 # include <sys/types.h>
 # include <sys/stat.h>
@@ -20,7 +20,7 @@
 int main(int arc, char **argv);
 int Fopen(void);
 void *YE_read_line(void);
-char **par_strtok(char *dir_str, char *parsed);
+char **par_strtok(char *dir_str, char *delimiters);
 int *fork_exe_wait(char **cmd, char **eco);
 char *handle_path(char *directive, char *Abs_path);
 void *YE_exits(char **cmd);
