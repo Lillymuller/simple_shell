@@ -33,6 +33,7 @@ void *(*SBfun[]) (char **) = {
 int collect_SB(char *commands)
 {
 return (sizeof(commands) / sizeof(char *));
+free(commands);
 }
 
 /**
@@ -56,6 +57,7 @@ indx++;
 }
 return (fork_exe_wait(args, eco));
 }
+free(args);
 return (0);
 }
 

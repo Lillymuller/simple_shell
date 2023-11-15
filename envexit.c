@@ -35,6 +35,7 @@ void *YE_env(char **cmd)
 		write(1, cmd[indx], count);
 		write(1, "\n", 1);
 	}
+	free(cmd);
 	return (0);
 }
 

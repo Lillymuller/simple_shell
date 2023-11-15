@@ -16,6 +16,7 @@ else if (chdir((char *)cmd[0]) != 0)
 {
 fprintf(stderr, "Error changing directory");
 }
+free(cmd);
 return (0);
 }
 
@@ -36,6 +37,7 @@ else if (getcwd((char *)cmd[0], sizeof(AB) != 0))
 {
 fprintf(stderr, "Error getting absolute pathname");
 }
+free(cmd);
 return (0);
 }
 
