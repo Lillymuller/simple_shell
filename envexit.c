@@ -3,11 +3,11 @@
 /**
 *YE_exits - exits the process
 *@cmd: command input
-*@exit_buff: memory for commmands
 *Return: Always 0
 */
-void *YE_exits(char **cmd, char **exit_buff)
+void *YE_exits(char **cmd)
 {
+<<<<<<< HEAD
 
 	if (!cmd[0])
 	{
@@ -18,6 +18,21 @@ void *YE_exits(char **cmd, char **exit_buff)
 	else
 	{
 exit(*cmd[0]);
+=======
+int exits = 0;
+int opp;
+
+if (cmd[0] == NULL)
+{
+free(cmd);
+exit(exits);
+}
+else
+{
+opp = *cmd[0];
+free(cmd);
+exit(opp);
+>>>>>>> b7d1312198ced9dda2eb1ea43d85526445b47d3d
 }
 }
 

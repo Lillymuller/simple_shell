@@ -23,7 +23,7 @@ void *YE_read_line(void);
 char **par_strtok(char *dir_str, char *delimiters);
 int *fork_exe_wait(char **cmd, char **eco);
 char *handle_path(char *directive, char *Abs_path);
-void *YE_exits(char **cmd, char **exit_buff);
+void *YE_exits(char **cmd);
 void *YE_env(char **cmd);
 void *YE_cd(char **cmd);
 void *YE_pwd(char **cmd);
@@ -36,5 +36,6 @@ void *YE_strcat(char *field, char *tank);
 void *YE_strcmp(char *x, char *y);
 void *YE_strcpy(char *field, char *tank);
 void *YE_strlen(char *n);
+void *YE_strncmp(char *x, char *y);
 
 #endif

@@ -10,7 +10,7 @@
 
 void *YE_cd(char **cmd);
 void *YE_pwd(char **cmd);
-void *YE_exits(char **cmd, char **exit_buff);
+void *YE_exits(char **cmd);
 
 void *commands[3] = {
 	"cd",
