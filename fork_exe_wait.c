@@ -26,12 +26,14 @@ if (execve(cmd[0], cmd, eco) == -1)
 	free(eco);
 	exit(EXIT_FAILURE);
 }
-
-while (WIFCONTINUED(status) && WIFSIGNALED(status) != 0)
+else
 {
-	waitpid(child_pid, &status, WUNTRACED); /* wait(pid_t, int *, int) */
+wait(&status);
+
+if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
+{
+	return (WEXITSTATUS(status));
 }
-exit(0);
 return (0);
 }
 
