@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
-*handle_path - find the path of the parsed directives
-*@Abs_path: it find out the address of command enterd
-*@directive: commands the user input
-*Return: Zero on success and -1 on error
+* handle_path - find the path of the parsed directives
+* @Abs_path: it find out the address of command enterd
+* @directive: commands the user input
+* Return: Zero on success and -1 on error
 */
 
 char *handle_path(char *directive, char *Abs_path)
