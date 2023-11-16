@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * YE_cd - gets the change directory process
+ * _cd - gets the change directory process
  * @cmd: the command input
  * Return: Always 0
  */
