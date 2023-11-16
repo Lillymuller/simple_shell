@@ -22,7 +22,7 @@ if (tok_size == NULL)
 delimiters = "\t\r\n\a";
 
 parsed = strtok(dir_str, delimiters);
-for(; parsed != NULL; parsed++)
+for (; parsed != NULL; parsed++)
 if (indx_cnt >= str_size)
 {
 str_size = (str_size + 1024);

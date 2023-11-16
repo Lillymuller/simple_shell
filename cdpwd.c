@@ -6,7 +6,7 @@
  * Return: Always 0 when directory changes and -1 onthe diectory change fail.
  */
 
-void *YE_cd(char **cmd)
+int YE_cd(char **cmd)
 {
 if (cmd[0] == NULL)
 {
@@ -26,7 +26,7 @@ return (0);
  * Return: Always 0
  */
 
-void *YE_pwd(char **cmd)
+int YE_pwd(char **cmd)
 {
 char AB[300];
 if (cmd[0] == NULL)

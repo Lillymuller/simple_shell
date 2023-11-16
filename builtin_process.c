@@ -9,17 +9,17 @@
  * Description - the cmd defines the argument input
  */
 
-void *YE_cd(char **cmd);
-void *YE_pwd(char **cmd);
-void *YE_exits(char **cmd);
+int YE_cd(char **cmd);
+int YE_pwd(char **cmd);
+int YE_exits(char **cmd);
 
-void *commands[3] = {
+char *commands[3] = {
 	"cd",
 	"pwd",
 	"exits",
 };
 
-void *(*SBfun[]) (char **) = {
+int (*SBfun[]) (char **) = {
 	&YE_cd,
 	&YE_pwd,
 	&YE_exits,
@@ -42,7 +42,7 @@ free(commands);
  * @cmd: argument inputs
  * Return: void
  */
-int *builtin_process(char *cmd)
+int builtin_process(char *cmd)
 {
 char **eco = NULL;
 int indx = 0;
