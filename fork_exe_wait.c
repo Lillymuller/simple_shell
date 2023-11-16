@@ -8,7 +8,7 @@
  * Return: Always 0
  */
 
-int *fork_exe_wait(char **cmd, char **eco)
+int fork_exe_wait(char **cmd, char **eco)
 {
 pid_t child_pid;
 int status;
@@ -35,6 +35,7 @@ if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
 	return (WEXITSTATUS(status));
 }
 return (0);
+}
 }
 
 /**

@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
-*YE_exits - exits the process
-*@cmd: command input
-*Return: Always 0
+* YE_exits - exits the process
+* @cmd: command input
+* Return: Always 0
 */
-void *YE_exits(char **cmd)
+int YE_exits(char **cmd)
 {
 
 if (!cmd[0])
@@ -20,12 +20,12 @@ exit(*cmd[0]);
 }
 
 /**
-*YE_env - finds the path
-*@cmd: command input
-*Return: Always 0
+* YE_env - finds the path
+* @cmd: command input
+* Return: Always 0
 */
 
-void *YE_env(char **cmd)
+int YE_env(char **cmd)
 {
 	int indx = 0;
 	int count = 0;
