@@ -3,38 +3,46 @@
 /**
  * par_strtok - gives the tokenized string
  * @dir_str: string that the user inputs
- * @delimiters: this are deliminators
  * Return: the tokenized string
  */
 
-char **par_strtok(char *dir_str, char *delimiters)
+char **par_strtok(char *dir_str)
 {
 int str_size = 1024;
 int indx_cnt = 0;
+char *delimiters;
 char *parsed;
 char **tok_size = malloc(str_size * sizeof(char *));
 
+if (tok_size == NULL)
+{
+	perror("tokinization error\n");
+	exit(0);
+}
+delimiters = "\t\r\n\a";
+
+parsed = strtok(dir_str, delimiters);
+for(; parsed != NULL; parsed++)
 if (indx_cnt >= str_size)
 {
 str_size = (str_size + 1024);
 tok_size = realloc(tok_size, str_size *sizeof(char *));
-}
-parsed = strpbrk(dir_str, delimiters);
-for (indx_cnt = 0; parsed != NULL; indx_cnt++)
+for (indx_cnt = 0; (tok_size[indx_cnt] = parsed) != 0; indx_cnt++)
 {
-tok_size[indx_cnt] = parsed;
-parsed = strpbrk(dir_str + 1, delimiters);
-}
 if (tok_size == NULL)
 {
 perror("Error\n");
 exit(EXIT_FAILURE);
 free(tok_size);
 }
+parsed = strtok(NULL, delimiters);
+}
 tok_size[indx_cnt] = NULL;
 return ((char **)tok_size);
 free(tok_size);
 free(parsed);
+}
+return (0);
 }
 
 /**
