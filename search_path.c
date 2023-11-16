@@ -22,6 +22,7 @@ return (NULL);
 length = strlen(env[i]) - 5;
 if (!ab_path)
 {
+free(ab_path);
 return (NULL);
 }
 for (j = 5; j < length + 5; j++)
@@ -29,6 +30,7 @@ for (j = 5; j < length + 5; j++)
 ab_path[j - 5] = env[i][j];
 }
 ab_path[length] = '\0';
+free(ab_path);
 return (ab_path);
 }
 
