@@ -4,7 +4,7 @@
  * setenv - sets the environment variable
  * @var: environment variable input
  * @worth: value set to the environment variable
- * @overwrite: overwrites the value of var when it exists
+ * @overwrite: overwrites the size of the variable
  * Return: 0 for success, otherwise -1
  */
 
@@ -18,6 +18,7 @@ if (possessed_val == NULL)
 perror("Error");
 exit(EXIT_FAILURE);
 }
+
 if (possessed_val != NULL)
 {
 setenv(var, worth, overwrite);
@@ -27,12 +28,12 @@ else
 {
 putenv(gained_var);
 }
-sprintf(gained_var, "%s%s", var, worth);
+sprintf(gained_var, "%s=%s", var, worth);
 
 do {
 perror("Error\n");
 exit(EXIT_FAILURE);
-} while (gained_var == NULL);
+} while (gained_var != NULL);
 
 free(gained_var);
 }

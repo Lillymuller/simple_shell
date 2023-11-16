@@ -1,18 +1,18 @@
 The README.md file includes the detailed descriptions of each project.
 
-start - begins the opening of a file in read mode, if the file exists.
-otherwise it will create a new file with read mode.
-it allocates memory with buff_size because we are using fgets() function.
-it closes the opened file and prints the number of charcters,
-used in the file.
-then returns zero.
+/**
+ * fopen - Opens a file in read mode, allocates memory for the file contents, reads the file contents using `fgets()`, closes the file, prints the number of characters read, and returns 0
+ * @param fname: The name of the file to open.
+ * @param buff_size: The size of the buffer to allocate for the file contents.
+ * @return: 0 on success, or -1 on failure.
+ */
 
-
-
-RD_LINE - reads from the stream meaning stdin.
-memo_size: stores the allocated size in bytes.
-the two if and else if condition checks if the end of
-file has been reached.
+/**
+ * Reads data from the standard input stream (stdin) until the end of the file is reached. It allocates memory to store the read data and returns a pointer to the allocated memory. The allocated size in bytes is stored in the provided 'memosize' variable.
+ *
+ * @param memosize: A pointer to an integer variable that will store the allocated size of the read data in bytes.
+ * @return: A pointer to the allocated memory containing the read data, or NULL on error.
+ */
 
 
 Ab_path - hold the path of the directives and files the user entered
