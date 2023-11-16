@@ -1,12 +1,13 @@
 #include "shell.h"
 
 /**
- * _cd - gets the change directory process
- * @cmd: the command input
- * Return: Always 0
+ * converts the current working directory to a specific path. 
+ *
+ * @parameter cmd[0]: the changing path to a desired directory
+ * Return: Always 0 when directory changes and -1 when the diectory change fails.
  */
 
-void *YE_cd(char **cmd)
+void YE_cd(char **cmd)
 {
 if (cmd[0] == NULL)
 {
