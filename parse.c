@@ -3,7 +3,7 @@
 /**
  * par_strtok - gives the tokenized string
  * @dir_str: string that the user inputs
- * Return: the tokenized string
+ * return: the tokenized string
  */
 
 char **par_strtok(char *dir_str)
