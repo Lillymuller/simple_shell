@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * YE_cd - calls the change directory function
+ * _cd - calls the change directory function
  * YE_pwd - calls the pwd function
  * YE_exits - calls the exit funtion
  * @cmd: argument inputs
