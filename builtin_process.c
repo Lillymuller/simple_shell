@@ -6,9 +6,10 @@
  * YE_exits - calls the exit funtion
  * @cmd: argument inputs
  * Return: void
+ * Description - the cmd defines the argument input
  */
 
-void *YE_cd(char **cmd);
+void YE_cd(char **cmd) {chdir(cmd)};
 void *YE_pwd(char **cmd);
 void *YE_exits(char **cmd);
 
@@ -23,6 +24,8 @@ void *(*SBfun[]) (char **) = {
 	&YE_pwd,
 	&YE_exits,
 };
+
+return (void);
 
 /**
  * collect_SB - this calls all the builtins and processes
