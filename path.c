@@ -19,7 +19,7 @@ char *handle_path(char *directive, char *Abs_path)
 		fprintf(stderr, "Failed to allocate memory for file_locate.\n");
 	return (NULL);
 	if (stat(directive, &stat_buff) == 0)
-		return (directive);
+		return (NULL);
 	Abs_path = getenv("PATH");
 	if (!Abs_path)
 	{
