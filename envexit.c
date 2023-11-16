@@ -7,16 +7,20 @@
 */
 int YE_exits(char **cmd)
 {
-
-if (!cmd[0])
+int EXIT_ARGS = 0;
+int abort = 0;
+char *endptr;
+if (!cmd[1])
 {
 free(cmd);
-exit(0);
+exit(abort);
 }
 else
 {
-exit(*cmd[0]);
+EXIT_ARGS = strtol(cmd[1], &endptr, 10);
 }
+free(cmd);
+exit(EXIT_ARGS);
 }
 
 /**
