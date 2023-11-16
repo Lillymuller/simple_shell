@@ -7,7 +7,7 @@
  * Return: void
  */
 
-void *YE_strcmp(char *x, char *y)
+int YE_strcmp(char *x, char *y)
 {
 int indx = 0;
 
@@ -16,5 +16,5 @@ while (x[indx] == y[indx] && x[indx] != '\0')
 indx++;
 }
 
-return ((void *) ((long) x[indx] - (long) y[indx]));
+return ((x[indx] - y[indx]));
 }

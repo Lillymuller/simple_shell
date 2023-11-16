@@ -7,46 +7,53 @@
 */
 int main(int arc, char **argv)
 {
-	/* function loop calls */
-	void *YE_read_line(void);
-	char **par_strtok(char *dir_str);
-	int fork_exe_wait(char **cmd, char **eco);
-	char *RD_LINE; /* function declarations */
+	char *RD_line;
 	char **PARSE_ARGS;
 	int Status;
-	int indx = 0;
-	char **eco = NULL;
-	(void)arc, (void)argv;
+	char *env;
+	int indx = 0, paths = 0;
+	(void)arc;
+
 	while (1)
 	{
-		RD_LINE = YE_read_line();
-		if (RD_LINE == NULL)
-		{
-			perror(" Enter arguments");
-			exit(0);
-		}
-		PARSE_ARGS = par_strtok(RD_LINE);
+	if (isatty(STDIN_FILENO))
+	{
+		write(1, "\n", 1);
+		exit(Status);
+	}
+	RD_line = YE_read_line();
+
+		if (RD_line != NULL)
+		PARSE_ARGS = par_strtok(RD_line);
 		indx++;
 		if (PARSE_ARGS == NULL)
 		{
-			perror("Error");
-			free(RD_LINE);
+			free(RD_line);
+			continue;
 		}
-		Status = (fork_exe_wait(PARSE_ARGS, eco));
+		if (YE_strcmp(PARSE_ARGS[0], "exit") == 0 || YE_strcmp
+		(PARSE_ARGS[1], "exit\n") == 0)
+		{
+			YE_exits(PARSE_ARGS, RD_line, Status);
+			free(PARSE_ARGS[indx]);
+			if (!YE_strcmp(PARSE_ARGS[0], "env"))
+				YE_env(env);
+				free(PARSE_ARGS[0]);
+		}
+		paths = handle_path(&PARSE_ARGS[0], env);
+		Status = (fork_exe_wait(PARSE_ARGS, env));
 		indx++;
 		if ((int)Status == 0)
 		{
+			free(PARSE_ARGS[0]);
 			free(PARSE_ARGS);
-			free(RD_LINE);
+			free(RD_line);
 		}
-		if (isatty(STDIN_FILENO) == -1)
-		{
-			write(1, "\n", 1);
-			return (EXIT_SUCCESS);
-		}
-		return (0);
 	}
+	return (0);
 }
+
+
 /**
 *This - is our main.RD_LINE - read input from stream
 *PARSE_ARGS - splits the input when delimi,iS found and replaces it with \0
