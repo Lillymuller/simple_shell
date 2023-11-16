@@ -2,12 +2,11 @@
 
 /**
  * YE_cd - converts the current working directory to a specific path.
- *
  * @cmd: the changing path to a desired directory
  * Return: Always 0 when directory changes and -1 onthe diectory change fail.
  */
 
-void YE_cd(char **cmd)
+void *YE_cd(char **cmd)
 {
 if (cmd[0] == NULL)
 {
