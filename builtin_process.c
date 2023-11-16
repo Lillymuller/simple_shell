@@ -1,14 +1,14 @@
 #include "shell.h"
 
 /**
- * _cd - calls the change directory function
+ * YE_cd - calls the change directory function
  * YE_pwd - calls the pwd function
  * YE_exits - calls the exit funtion
  * @cmd: argument inputs
  * Return: void
  */
 
-void *YE_cd(char **cmd);
+void YE_cd(char **cmd) {chdir(cmd)};
 void *YE_pwd(char **cmd);
 void *YE_exits(char **cmd);
 
