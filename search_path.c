@@ -6,11 +6,7 @@
   * Return: the enviroment path
   */
 
-<<<<<<< HEAD
-int env_path(char *env)
-=======
 char *env_path(char **environ)
->>>>>>> ad378773b7726e94a0b50bdaea458eeca8277688
 {
 int j = 0, i = 0;
 int length;

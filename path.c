@@ -15,24 +15,19 @@ int handle_path(char *directive, char *Abs_path)
 	int dir_size = 0, tok_size = 0;
 	char *file_locate = malloc(dir_size + tok_size + 2);
 
-	if (file_locate == 0)
+	if (file_locate == NULL)
 		fprintf(stderr, "Failed to allocate memory for file_locate.\n");
 	return (0);
 	if (stat(directive, &stat_buff) == 0)
-<<<<<<< HEAD
 		return (0);
-	*Abs_path = getenv("PATH");
-=======
-		return (NULL);
 	Abs_path = secure_getenv("PATH");
->>>>>>> ad378773b7726e94a0b50bdaea458eeca8277688
 	if (!Abs_path)
 	{
 		fprintf(stderr, "Path Doesn't Exist");
 		return (0);
 	}
 	duplicate = strdup(Abs_path);
-	if (duplicate == 0)
+	if (duplicate == NULL)
 		perror("Error");
 	exit(1);
 	tokenize = strtok(duplicate, ":");
@@ -45,7 +40,7 @@ int handle_path(char *directive, char *Abs_path)
 		strcpy(file_locate, tokenize);
 		strcat(file_locate, "/");
 		strcpy(file_locate, directive);
-	} while (tokenize != 0);
+	} while (tokenize != NULL);
 	if (stat(file_locate, &stat_buff) == 0)
 		free(duplicate);
 	return (0);

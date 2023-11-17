@@ -22,12 +22,15 @@ int main(int arc, char **argv)
 		write(1, "\n", 1);
 		exit(Status);
 	}
+	else
+	{
 	RD_line = YE_read_line();
 
 	if (RD_line != NULL)
 	{
 		indx++;
 	}
+	PARSE_ARGS = par_strtok(RD_line);
 		if (PARSE_ARGS == NULL)
 		{
 			free(RD_line);
@@ -53,6 +56,7 @@ int main(int arc, char **argv)
 			free(PARSE_ARGS);
 			free(RD_line);
 		}
+	}
 	}
 	return (0);
 }

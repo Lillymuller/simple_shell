@@ -6,11 +6,7 @@
  * Return: Always 0 when directory changes and -1 onthe diectory change fail.
  */
 
-<<<<<<< HEAD
-int YE_cd(char *cmd)
-=======
 int YE_cd(const char *cmd)
->>>>>>> ad378773b7726e94a0b50bdaea458eeca8277688
 {
 if (cmd[0] == NULL)
 {
@@ -31,11 +27,7 @@ return (0);
  * Return: Always 0
  */
 
-<<<<<<< HEAD
-int YE_pwd(char *cmd)
-=======
 char *YE_pwd(char *cmd, size_t AB)
->>>>>>> ad378773b7726e94a0b50bdaea458eeca8277688
 {
 AB = 300;
 if (cmd[0] == NULL)

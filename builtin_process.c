@@ -6,17 +6,6 @@
  * Return: void
  */
 
-
-int YE_cd(char *cmd);
-int YE_pwd(char *cmd);
-int YE_exits(char *cmd, char *EXIT_ARGS, int Abort);
-
-char *commands[3] = {
-	"cd",
-	"pwd",
-	"exits",
-};
-
 int call_back(char *commands)
 {
 commands[3] = {"cd", "pwd", "exits"};
@@ -37,11 +26,10 @@ return (0);
 int builtin_process(char *cmd)
 {
 char *eco = NULL;
-char arg = NULL;
 int indx = 0;
 char *args = malloc(sizeof("cmd") + 1);
-strcpy((char *)args[0], "cmd");
 
+strcpy((char *)args[0], "cmd");
 while (indx < call_back((char *)commands))
 {
 if (strcmp(cmd, commands[indx]) == 0)
@@ -49,7 +37,7 @@ if (strcmp(cmd, commands[indx]) == 0)
 return (SBfun[indx](&cmd));
 indx++;
 }
-return (fork_exe_wait(args, eco, arg));
+return (fork_exe_wait(args, eco));
 }
 free(args);
 return (0);

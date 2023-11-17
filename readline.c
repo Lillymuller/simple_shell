@@ -5,7 +5,7 @@
 *Return: 0 if success, -1 if failure
 */
 
-int read_directive(void)
+void *read_directive(void)
 {
 	int buffer_size = 1024;
 	int indx = 0, a;
@@ -41,7 +41,6 @@ int read_directive(void)
 		return (0);
 	}
 	free(buff);
-	free(buffer_size);
 	return (0);
 }
 

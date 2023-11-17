@@ -12,11 +12,7 @@ int str_size = 1024;
 int indx_cnt = 0;
 char *delimiters;
 char *parsed;
-<<<<<<< HEAD
-char *tok_size = malloc(str_size * sizeof(char *));
-=======
 char **tok_size = malloc(sizeof(char *) * str_size);
->>>>>>> ad378773b7726e94a0b50bdaea458eeca8277688
 
 if (tok_size == NULL)
 {
