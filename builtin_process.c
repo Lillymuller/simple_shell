@@ -40,7 +40,7 @@ return (0);
 int builtin_process(char *cmd)
 {
 char *eco = NULL;
-char *argvs = NULL;
+char **argvs = NULL;
 int indx = 0;
 char **args = malloc(sizeof("cmd") + 1);
 void (*SBfun[3]) (char **);
