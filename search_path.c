@@ -2,33 +2,36 @@
 
 /**
   * env_path - this searchs the enviroment
-  * @env: gets input
+  * @environ: gets input
   * Return: the enviroment path
   */
 
-char *env_path(char **env)
+char *env_path(char **environ)
 {
 int j = 0, i = 0;
 int length;
-char *ab_path = malloc(sizeof(length));
+char *Abs_path = malloc(sizeof(length));
 
-for (i = 0; env[i] && strncmp(env[i], "PATH=", 5) != 0; i++)
-;
+while (environ[i] && strncmp(environ[i], "PATH=", 5) != 0)
+{
+i++;
+}
 
-if (!env[i])
+if (!environ[i])
 {
 return (NULL);
 }
-length = strlen(env[i]) - 5;
-if (!ab_path)
+length = strlen(environ[i]) - 5;
+if (!Abs_path)
 {
+free(Abs_path);
 return (NULL);
 }
 for (j = 5; j < length + 5; j++)
 {
-ab_path[j - 5] = env[i][j];
+Abs_path[j - 5] = environ[i][j];
 }
-ab_path[length] = '\0';
-return (ab_path);
+Abs_path[length] = '\0';
+return (Abs_path);
+free(Abs_path);
 }
-

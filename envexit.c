@@ -2,10 +2,10 @@
 
 /**
 * YE_exits - exits the process
-* @cmd: command input
+* @status: checks the status of the exit function
 * Return: Always 0
 */
-int YE_exits(char **cmd)
+void YE_exits(int status)
 {
 int EXIT_ARGS = 0;
 int abort = 0;
@@ -17,9 +17,8 @@ exit(abort);
 }
 else
 {
-EXIT_ARGS = strtol(cmd[1], &endptr, 10);
+EXIT_ARGS = strtol(status[1], &endptr, 10);
 }
-free(cmd);
 exit(EXIT_ARGS);
 }
 

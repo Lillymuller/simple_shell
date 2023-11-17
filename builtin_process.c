@@ -1,40 +1,21 @@
 #include "shell.h"
 
 /**
- * YE_cd - calls the change directory function
- * YE_pwd - calls the pwd function
- * YE_exits - calls the exit funtion
- * @cmd: argument inputs
+ * call_back - calls back the functions
+ * @commands: argument inputs
  * Return: void
- * Description - the cmd defines the argument input
  */
 
-int YE_cd(char **cmd);
-int YE_pwd(char **cmd);
-int YE_exits(char **cmd);
-
-char *commands[3] = {
-	"cd",
-	"pwd",
-	"exits",
-};
-
-int (*SBfun[]) (char **) = {
-	&YE_cd,
-	&YE_pwd,
-	&YE_exits,
-};
-
-/**
- * collect_SB - this calls all the builtins and processes
- * @commands: argument input
- * Return: Shell builtin
- */
-
-int collect_SB(char *commands)
+int call_back(char *commands)
 {
+commands[3] = {"cd", "pwd", "exits"};
+
+int (*SBfun[]) (char **) = {YE_cd, YE_pwd, YE_exits};
+
 return (sizeof(commands) / sizeof(char *));
+
 free(commands);
+return (0);
 }
 
 /**
@@ -49,7 +30,7 @@ int indx = 0;
 char **args = malloc(sizeof("cmd") + 1);
 strcpy((char *)args[0], "cmd");
 
-while (indx < collect_SB((char *)commands))
+while (indx < call_back((char *)commands))
 {
 if (strcmp(cmd, commands[indx]) == 0)
 {
