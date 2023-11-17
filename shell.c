@@ -5,14 +5,14 @@
 * @argv: argument variables
 * Return: Always 0
 */
-int main(int arc, char **argv)
+int main(int arc, char *argv)
 {
 	char *RD_line;
-	char *PARSE_ARGS;
-	int Status;
+	char **PARSE_ARGS;
+	int paths;
 	char *env;
 	int indx = 0;
-	int paths = 0;
+	int Status;
 	(void)arc;
 
 	while (1)
@@ -31,7 +31,8 @@ int main(int arc, char **argv)
 		indx++;
 	}
 	PARSE_ARGS = par_strtok(RD_line);
-		if (PARSE_ARGS == NULL)
+
+	if (PARSE_ARGS == NULL)
 		{
 			free(RD_line);
 			continue;
@@ -44,10 +45,10 @@ int main(int arc, char **argv)
 			if (!YE_strcmp(PARSE_ARGS[0], "env"))
 			{
 				YE_env(env);
-				free(PARSE_ARGS[0]);
+				free((char *)PARSE_ARGS[0]);
 			}
 		}
-		paths = handle_path(PARSE_ARGS[0], env);
+		paths = handle_path((char *)PARSE_ARGS[0], env);
 		Status = (fork_exe_wait(PARSE_ARGS, env, argv));
 		indx++;
 		if ((int)Status == 0)

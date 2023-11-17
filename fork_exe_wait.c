@@ -9,7 +9,7 @@
  * Return: Always 0
  */
 
-int fork_exe_wait(char *cmd, char *eco, char *arg)
+int fork_exe_wait(char **cmd, char *eco, char *arg)
 {
 pid_t child_pid;
 int status;
