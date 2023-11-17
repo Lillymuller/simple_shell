@@ -20,13 +20,13 @@ int handle_path(char *directive, char *Abs_path)
 	return (0);
 	if (stat(directive, &stat_buff) == 0)
 		return (0);
-	Abs_path = secure_getenv("PATH");
+	Abs_path = getenv("PATH");
 	if (!Abs_path)
 	{
 		fprintf(stderr, "Path Doesn't Exist");
 		return (0);
 	}
-	duplicate = strdup(Abs_path);
+	duplicate = strdup((char *)Abs_path);
 	if (duplicate == NULL)
 		perror("Error");
 	exit(1);

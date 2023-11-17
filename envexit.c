@@ -9,17 +9,17 @@
 void *YE_exits(char **EXIT_ARGS)
 {
 char *endptr;
-char *status[] = NULL;
+char *status = 0;
 int abort = 0;
-if (!status[1])
+if (!status)
 {
 exit(abort);
 }
 else
 {
-EXIT_ARGS = strtol(status[1], &endptr, 10);
+EXIT_ARGS = (char *)(long)strtol((char *)status, &endptr, 10);
 }
-exit((char **)EXIT_ARGS);
+exit(**EXIT_ARGS);
 }
 
 /**
@@ -28,9 +28,9 @@ exit((char **)EXIT_ARGS);
 * Return: Always 0
 */
 
-int YE_env(char *env)
+int YE_env(char *env[])
 {
-        char *indx = NULL;
+        int indx = 0;
 	int count = 0;
 
 	if (env[indx] == 0)

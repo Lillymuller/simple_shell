@@ -52,7 +52,7 @@ if (strcmp(cmd, x[indx]) == 0)
 return (*SBfun[indx](&cmd));
 indx++;
 }
-return (fork_exe_wait(args, eco));
+return (fork_exe_wait(args, eco, cmd));
 }
 free(args);
 return (0);

@@ -9,7 +9,7 @@ char *YE_read_line(void)
 {
 	char *RD_LINE;
 	char *prompt = "cisfun$ ";
-	ssize_t line;
+	ssize_t line = 0;
 	size_t memo_size = 0;
 
 	if (isatty(STDIN_FILENO) == 1)
@@ -17,9 +17,12 @@ char *YE_read_line(void)
 		write(1, prompt, 8);
 	}
 
-	line = (getline(&RD_LINE, &memo_size, stdin) == -1);
+	line = (getline(&RD_LINE, &memo_size, stdin));
+	if (line == -1)
+	{
 		free(RD_LINE);
 		return (NULL);
+	}
 	return (RD_LINE);
 }
 

@@ -18,14 +18,14 @@
 
 int main(int arc, char **argv);
 int Fopen(void);
-void *YE_read_line(void);
-char **par_strtok(char *dir_str);
-int fork_exe_wait(char **cmd, char **eco);
-int handle_path(char *directive, char **Abs_path);
+char *YE_read_line(void);
+char **par_strtok(char *dir_str, char **tok_size);
+int fork_exe_wait(char **cmd, char **eco, char **arg);
+int handle_path(char *directive, char *Abs_path);
 void *YE_cd(char **cmd);
 void *YE_pwd(char **cmd);
 void *YE_exits(char **EXIT_ARGS);
-int YE_env(char *env);
+int YE_env(char *env[]);
 int builtin_process(char *cmd);
 int setenv(const char *var, const char *worth, int overwrite);
 int unsetenv(const char *var);
