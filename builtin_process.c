@@ -9,9 +9,9 @@
  * Description - the cmd defines the argument input
  */
 
-int YE_cd(char **cmd);
-int YE_pwd(char **cmd);
-int YE_exits(char **cmd);
+int YE_cd(char *cmd);
+int YE_pwd(char *cmd);
+int YE_exits(char *cmd, char *EXIT_ARGS, int Abort);
 
 char *commands[3] = {
 	"cd",
@@ -44,9 +44,10 @@ free(commands);
  */
 int builtin_process(char *cmd)
 {
-char **eco = NULL;
+char *eco = NULL;
+char arg = NULL;
 int indx = 0;
-char **args = malloc(sizeof("cmd") + 1);
+char *args = malloc(sizeof("cmd") + 1);
 strcpy((char *)args[0], "cmd");
 
 while (indx < collect_SB((char *)commands))
@@ -56,7 +57,7 @@ if (strcmp(cmd, commands[indx]) == 0)
 return (SBfun[indx](&cmd));
 indx++;
 }
-return (fork_exe_wait(args, eco));
+return (fork_exe_wait(args, eco, arg));
 }
 free(args);
 return (0);

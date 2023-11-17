@@ -5,7 +5,7 @@
 *Return: read line
 */
 
-void *YE_read_line(void)
+char *YE_read_line(void)
 {
 	char *RD_LINE;
 	char *prompt = "cisfun$ ";

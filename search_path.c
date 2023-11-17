@@ -6,7 +6,7 @@
   * Return: the enviroment path
   */
 
-char *env_path(char **env)
+int env_path(char *env)
 {
 int j = 0, i = 0;
 int length;

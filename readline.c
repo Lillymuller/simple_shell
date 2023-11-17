@@ -5,16 +5,16 @@
 *Return: 0 if success, -1 if failure
 */
 
-void *read_directive(void)
+int read_directive(void)
 {
 	int buffer_size = 1024;
 	int indx = 0, a;
 	char *buff = malloc(sizeof(char) * buffer_size);
 
-	if (buff == NULL)
+	if (buff == 0)
 	{
 		perror("Error\n");
-		return (NULL);
+		return (0);
 	}
 
 	do {
@@ -35,12 +35,13 @@ void *read_directive(void)
 	{
 		buffer_size += 1024;
 		buff = realloc(buff, buffer_size);
-		if (buff == NULL)
+		if (buff == 0)
 			perror("Error");
 		free(buff);
-		return (NULL);
+		return (0);
 	}
 	free(buff);
+	free(buffer_size);
 	return (0);
 }
 

@@ -6,13 +6,13 @@
  * Return: the tokenized string
  */
 
-char **par_strtok(char *dir_str)
+char *par_strtok(char *dir_str)
 {
 int str_size = 1024;
 int indx_cnt = 0;
 char *delimiters;
 char *parsed;
-char **tok_size = malloc(str_size * sizeof(char *));
+char *tok_size = malloc(str_size * sizeof(char *));
 
 if (tok_size == NULL)
 {
@@ -38,7 +38,7 @@ free(tok_size);
 parsed = strtok(NULL, delimiters);
 }
 tok_size[indx_cnt] = NULL;
-return ((char **)tok_size);
+return (tok_size);
 free(tok_size);
 free(parsed);
 }
