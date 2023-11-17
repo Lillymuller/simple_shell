@@ -12,7 +12,11 @@ int str_size = 1024;
 int indx_cnt = 0;
 char *delimiters;
 char *parsed;
+<<<<<<< HEAD
 char *tok_size = malloc(str_size * sizeof(char *));
+=======
+char **tok_size = malloc(sizeof(char *) * str_size);
+>>>>>>> ad378773b7726e94a0b50bdaea458eeca8277688
 
 if (tok_size == NULL)
 {
@@ -26,7 +30,7 @@ for (; parsed != NULL; parsed++)
 if (indx_cnt >= str_size)
 {
 str_size = (str_size + 1024);
-tok_size = realloc(tok_size, str_size *sizeof(char *));
+tok_size = realloc(sizeof(char *) * str_size, tok_size);
 for (indx_cnt = 0; (tok_size[indx_cnt] = parsed) != 0; indx_cnt++)
 {
 if (tok_size == NULL)

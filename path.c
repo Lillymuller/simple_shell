@@ -19,8 +19,13 @@ int handle_path(char *directive, char *Abs_path)
 		fprintf(stderr, "Failed to allocate memory for file_locate.\n");
 	return (0);
 	if (stat(directive, &stat_buff) == 0)
+<<<<<<< HEAD
 		return (0);
 	*Abs_path = getenv("PATH");
+=======
+		return (NULL);
+	Abs_path = secure_getenv("PATH");
+>>>>>>> ad378773b7726e94a0b50bdaea458eeca8277688
 	if (!Abs_path)
 	{
 		fprintf(stderr, "Path Doesn't Exist");
