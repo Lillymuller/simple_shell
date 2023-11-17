@@ -20,7 +20,7 @@ int handle_path(char *directive, char *Abs_path)
 	return (0);
 	if (stat(directive, &stat_buff) == 0)
 		return (0);
-	Abs_path = secure_getenv("PATH");
+	Abs_path = getenv("ENV");
 	if (!Abs_path)
 	{
 		fprintf(stderr, "Path Doesn't Exist");
