@@ -7,7 +7,7 @@
 * Return: Zero on success and -1 on error
 */
 
-int handle_path(char *directive, char **Abs_path)
+int handle_path(char *directive, char *Abs_path)
 {
 	struct stat stat_buff;
 	char *duplicate;

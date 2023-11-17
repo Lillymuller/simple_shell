@@ -25,11 +25,11 @@ return (0);
  */
 int builtin_process(char *cmd)
 {
-char **eco = NULL;
+char *eco = NULL;
 int indx = 0;
-char **args = malloc(sizeof("cmd") + 1);
-strcpy((char *)args[0], "cmd");
+char *args = malloc(sizeof("cmd") + 1);
 
+strcpy((char *)args[0], "cmd");
 while (indx < call_back((char *)commands))
 {
 if (strcmp(cmd, commands[indx]) == 0)

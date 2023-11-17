@@ -5,10 +5,11 @@
  * returns the exit status of the child process.
  * @cmd: this the arguments
  * @eco: this is the enviroment.
+ * @arg: argument entered.
  * Return: Always 0
  */
 
-int fork_exe_wait(char **cmd, char **eco)
+int fork_exe_wait(char *cmd, char *eco, char *arg)
 {
 pid_t child_pid;
 int status;

@@ -11,10 +11,10 @@ void *read_directive(void)
 	int indx = 0, a;
 	char *buff = malloc(sizeof(char) * buffer_size);
 
-	if (buff == NULL)
+	if (buff == 0)
 	{
 		perror("Error\n");
-		return (NULL);
+		return (0);
 	}
 
 	do {
@@ -35,10 +35,10 @@ void *read_directive(void)
 	{
 		buffer_size += 1024;
 		buff = realloc(buff, buffer_size);
-		if (buff == NULL)
+		if (buff == 0)
 			perror("Error");
 		free(buff);
-		return (NULL);
+		return (0);
 	}
 	free(buff);
 	return (0);
