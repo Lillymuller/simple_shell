@@ -6,7 +6,7 @@
  * Return: void
  */
 
-<<<<<<< HEAD
+
 int YE_cd(char *cmd);
 int YE_pwd(char *cmd);
 int YE_exits(char *cmd, char *EXIT_ARGS, int Abort);
@@ -16,11 +16,10 @@ char *commands[3] = {
 	"pwd",
 	"exits",
 };
-=======
+
 int call_back(char *commands)
 {
 commands[3] = {"cd", "pwd", "exits"};
->>>>>>> ad378773b7726e94a0b50bdaea458eeca8277688
 
 int (*SBfun[]) (char **) = {YE_cd, YE_pwd, YE_exits};
 
