@@ -8,12 +8,13 @@
 void *YE_read_line(void)
 {
 	char *RD_LINE;
+	char *prompt = "cisfun$ ";
 	ssize_t line;
 	size_t memo_size = 0;
 
-	if (isatty(STDIN_FILENO) == 1)
+	if (isatty(0))
 	{
-		write(1, "cisfun$ ", 8);
+		write(1, prompt, 8);
 	}
 
 	line = (getline(&RD_LINE, &memo_size, stdin));
