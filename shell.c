@@ -11,7 +11,8 @@ int main(int arc, char **argv)
 	char **PARSE_ARGS;
 	int Status;
 	char *env;
-	int indx = 0, paths = 0;
+	int indx = 0
+	int paths = 0;
 	(void)arc;
 
 	while (1)
@@ -21,11 +22,15 @@ int main(int arc, char **argv)
 		write(1, "\n", 1);
 		exit(Status);
 	}
+	else
+	{
 	RD_line = YE_read_line();
 
 		if (RD_line != NULL)
-		PARSE_ARGS = par_strtok(RD_line);
+		{
 		indx++;
+		}
+		PARSE_ARGS = par_strtok(RD_line);
 		if (PARSE_ARGS == NULL)
 		{
 			free(RD_line);
@@ -41,7 +46,7 @@ int main(int arc, char **argv)
 				free(PARSE_ARGS[0]);
 		}
 		paths = handle_path(&PARSE_ARGS[0], env);
-		Status = (fork_exe_wait(PARSE_ARGS, env));
+		Status = (fork_exe_wait(PARSE_ARGS, env, argv));
 		indx++;
 		if ((int)Status == 0)
 		{
@@ -49,6 +54,7 @@ int main(int arc, char **argv)
 			free(PARSE_ARGS);
 			free(RD_line);
 		}
+	}
 	}
 	return (0);
 }

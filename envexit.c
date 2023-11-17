@@ -2,24 +2,17 @@
 
 /**
 * YE_exits - exits the process
-<<<<<<< HEAD
 * @status: checks the status of the exit function
+* @EXIT_ARGS: command entered
 * Return: Always 0
 */
-void YE_exits(int status)
-=======
-* @cmd: it contain array of arguments
-* @EXIT_ARGS: command enterd
-* @Abort: it exits function
-* Return: Always 0
-*/
-int YE_exits(char **cmd, char *EXIT_ARGS, int abort)
->>>>>>> dd3dd803b8f2f11d1ad6d8c0d9b25a6300aca0cf
+
+int YE_exits(char *EXIT_ARGS, int status)
 {
 char *endptr;
-if (!cmd[1])
+int abort = 0;
+if (!status[1])
 {
-free(cmd);
 exit(abort);
 }
 else

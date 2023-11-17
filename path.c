@@ -17,9 +17,9 @@ int handle_path(char *directive, char **Abs_path)
 
 	if (file_locate == NULL)
 		fprintf(stderr, "Failed to allocate memory for file_locate.\n");
-	return (NULL);
+	return (0);
 	if (stat(directive, &stat_buff) == 0)
-		return (NULL);
+		return (0);
 	Abs_path = secure_getenv("PATH");
 	if (!Abs_path)
 	{
@@ -43,12 +43,12 @@ int handle_path(char *directive, char **Abs_path)
 	} while (tokenize != NULL);
 	if (stat(file_locate, &stat_buff) == 0)
 		free(duplicate);
-	return (NULL);
+	return (0);
 	tokenize = strtok(NULL, ":");
 	free(duplicate);
 	free(tokenize);
 	free(file_locate);
-	return (NULL);
+	return (0);
 }
 
 /**
