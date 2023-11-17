@@ -6,7 +6,7 @@
  * Return: Always 0 when directory changes and -1 onthe diectory change fail.
  */
 
-int YE_cd(const char *cmd)
+void *YE_cd(char **cmd)
 {
 if (cmd[0] == NULL)
 {
@@ -23,13 +23,12 @@ return (0);
 /**
  * YE_pwd - gets the absolute pathname
  * @cmd: command input
- * @AB: array input
  * Return: Always 0
  */
 
-char *YE_pwd(char *cmd, size_t AB)
+void *YE_pwd(char **cmd)
 {
-AB = 300;
+size_t AB = 300;
 if (cmd[0] == NULL)
 {
 perror("Error");

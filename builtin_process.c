@@ -2,18 +2,32 @@
 
 /**
  * call_back - calls back the functions
- * @commands: argument inputs
+ * @x: argument inputs
  * Return: void
  */
 
-int call_back(char *commands)
+void *call_back(char **x)
 {
-commands[3] = {"cd", "pwd", "exits"};
+void *YE_cd(char **cmd);
+void *YE_pwd(char **cmd);
+void *YE_exits(char **EXIT_ARGS);
 
-int (*SBfun[]) (char **) = {YE_cd, YE_pwd, YE_exits};
+char *commands[3] = {
+	"cd\0",
+	"pwd\0",
+	"exits\0",
+};
+
+void (*SBfun[]) (char **) = {
+	&YE_cd,
+	&YE_pwd,
+	&YE_exits,
+};
+int collect_SB(void);
 
 return (sizeof(commands) / sizeof(char *));
 
+free(x);
 free(commands);
 return (0);
 }
@@ -25,16 +39,17 @@ return (0);
  */
 int builtin_process(char *cmd)
 {
-char *eco = NULL;
+char **eco = NULL;
 int indx = 0;
-char *args = malloc(sizeof("cmd") + 1);
+char **args = malloc(sizeof("cmd") + 1);
+void (*SBfun[3]) (char **);
 
-strcpy((char *)args[0], "cmd");
-while (indx < call_back((char *)commands))
+strcpy(args[0], "cmd");
+while (indx < call_back((char *)x))
 {
-if (strcmp(cmd, commands[indx]) == 0)
+if (strcmp(cmd, x[indx]) == 0)
 {
-return (SBfun[indx](&cmd));
+return (*SBfun[indx](&cmd));
 indx++;
 }
 return (fork_exe_wait(args, eco));

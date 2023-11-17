@@ -2,19 +2,15 @@
 
 /**
 * YE_exits - exits the process
-* @status: checks the status of the exit function
 * @EXIT_ARGS: command entered
 * Return: Always 0
 */
 
-int YE_exits(char *EXIT_ARGS, int status)
+void *YE_exits(char **EXIT_ARGS)
 {
 char *endptr;
-<<<<<<< HEAD
+char *status[] = NULL;
 int abort = 0;
-=======
-int Abort = 0;
->>>>>>> e35bb2c006029136f72c6143f3e68cb029fa418e
 if (!status[1])
 {
 exit(abort);
@@ -23,7 +19,7 @@ else
 {
 EXIT_ARGS = strtol(status[1], &endptr, 10);
 }
-exit(EXIT_ARGS);
+exit((char **)EXIT_ARGS);
 }
 
 /**
@@ -34,10 +30,10 @@ exit(EXIT_ARGS);
 
 int YE_env(char *env)
 {
-	int indx = 0;
+        char *indx = NULL;
 	int count = 0;
 
-	if (env[indx] == NULL)
+	if (env[indx] == 0)
 	{
 		perror("Error finding the path....");
 	}

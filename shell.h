@@ -21,19 +21,11 @@ int Fopen(void);
 void *YE_read_line(void);
 char **par_strtok(char *dir_str);
 int fork_exe_wait(char **cmd, char **eco);
-<<<<<<< HEAD
 int handle_path(char *directive, char **Abs_path);
-int YE_cd(const char *cmd);
-char *YE_pwd(char *cmd, size_t AB);
-int YE_exits(char *EXIT_ARGS, int status);
-int YE_env(char **cmd);
-=======
-int handle_path(char *directive, char *Abs_path);
-int YE_cd(const char *cmd);
-char *YE_pwd(char *cmd, size_t AB);
-int YE_exits(char *EXIT_ARGS, int status);
-int YE_env(char **env);
->>>>>>> e35bb2c006029136f72c6143f3e68cb029fa418e
+void *YE_cd(char **cmd);
+void *YE_pwd(char **cmd);
+void *YE_exits(char **EXIT_ARGS);
+int YE_env(char *env);
 int builtin_process(char *cmd);
 int setenv(const char *var, const char *worth, int overwrite);
 int unsetenv(const char *var);
@@ -44,6 +36,6 @@ void *YE_strcpy(char *field, char *tank);
 void *YE_strlen(char *n);
 void *YE_strncmp(char *x, char *y);
 char *env_path(char **environ);
-int call_back(char *commands);
+void *call_back(char **x);
 
 #endif
