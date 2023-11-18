@@ -39,7 +39,8 @@ return (0);
  */
 int builtin_process(char *cmd)
 {
-char **eco = NULL;
+char *eco = NULL;
+char **argvs = NULL;
 int indx = 0;
 char **args = malloc(sizeof("cmd") + 1);
 void (*SBfun[3]) (char **);
@@ -52,7 +53,11 @@ if (strcmp(cmd, x[indx]) == 0)
 return (*SBfun[indx](&cmd));
 indx++;
 }
+<<<<<<< HEAD
 return (fork_exe_wait(args, eco, cmd));
+=======
+return (fork_exe_wait(args, eco, argvs);
+>>>>>>> a92d2142684d5558d1cdc3bda5a0845624058eba
 }
 free(args);
 return (0);

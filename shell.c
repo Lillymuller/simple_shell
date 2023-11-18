@@ -8,11 +8,12 @@
 int main(int arc, char **argv)
 {
 	char *RD_line;
-	char *PARSE_ARGS;
-	int Status;
-	char *env;
-	int indx = 0;
+	char **PARSE_ARGS;
 	int paths = 0;
+	char *env = getenv("ENV");
+	int indx = 0;
+	char *new_env = malloc(strlen(env) + strlen((char *)paths) + 2);
+	int Status;
 	(void)arc;
 
 	while (1)
@@ -32,7 +33,7 @@ int main(int arc, char **argv)
 	}
 	PARSE_ARGS = par_strtok(RD_line);
 
-		if (PARSE_ARGS == NULL)
+	if (PARSE_ARGS == NULL)
 		{
 			free(RD_line);
 			continue;
@@ -40,15 +41,20 @@ int main(int arc, char **argv)
 		if (YE_strcmp(PARSE_ARGS[0], "exit") == 0 || YE_strcmp
 		(PARSE_ARGS[1], "exit\n") == 0)
 		{
-			YE_exits(PARSE_ARGS, RD_line, Status);
+			YE_exits(PARSE_ARGS);
 			free(PARSE_ARGS[indx]);
 			if (!YE_strcmp(PARSE_ARGS[0], "env"))
 			{
 				YE_env(env);
-				free(PARSE_ARGS[0]);
+				free((char *)PARSE_ARGS[0]);
 			}
 		}
-		paths = handle_path(PARSE_ARGS[0], env);
+		paths = handle_path((char *)PARSE_ARGS[0], env);
+		{
+			strcpy(new_env, env);
+			strcat(new_env, "/");
+			putenv(new_env);
+		}
 		Status = (fork_exe_wait(PARSE_ARGS, env, argv));
 		indx++;
 		if ((int)Status == 0)
@@ -56,6 +62,7 @@ int main(int arc, char **argv)
 			free(PARSE_ARGS[0]);
 			free(PARSE_ARGS);
 			free(RD_line);
+			free(new_env);
 		}
 	}
 	}

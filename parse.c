@@ -13,7 +13,11 @@ int str_size = 1024;
 int indx_cnt = 0;
 char *delimiters;
 char *parsed;
+<<<<<<< HEAD
 char *val = malloc(sizeof(char *) * str_size);
+=======
+char *tok_size = malloc(sizeof(char *) * str_size);
+>>>>>>> a92d2142684d5558d1cdc3bda5a0845624058eba
 
 if (tok_size == NULL)
 {
@@ -22,13 +26,18 @@ if (tok_size == NULL)
 }
 delimiters = "\t\r\n\a";
 
-parsed = strtok(dir_str, delimiters);
+*parsed = strtok(dir_str, delimiters);
 for (; parsed != NULL; parsed++)
 if (indx_cnt >= str_size)
 {
 str_size = (str_size + 1024);
+<<<<<<< HEAD
 tok_size = realloc((void *)val, (size_t)tok_size);
 for (indx_cnt = 0; (tok_size[indx_cnt] = parsed) != 0; indx_cnt++)
+=======
+tok_size = realloc(sizeof(char *) * str_size, tok_size);
+for (indx_cnt = 0; (tok_size[indx_cnt] = *parsed) != 0; indx_cnt++)
+>>>>>>> a92d2142684d5558d1cdc3bda5a0845624058eba
 {
 if (tok_size == NULL)
 {
@@ -38,7 +47,7 @@ free(tok_size);
 }
 parsed = strtok(NULL, delimiters);
 }
-tok_size[indx_cnt] = NULL;
+tok_size[indx_cnt] = 0;
 return (tok_size);
 free(tok_size);
 free(parsed);
