@@ -7,35 +7,47 @@
  * Return: the tokenized string
  */
 
+<<<<<<< HEAD
 char **par_strtok(char *dir_str, char **tok_size)
+=======
+char **par_strtok(char *dir_str)
+>>>>>>> f20d057461cd281f40ef23bfec7490ec495e75e6
 {
 int str_size = 1024;
 int indx_cnt = 0;
 char *delimiters;
 char *parsed;
 <<<<<<< HEAD
+<<<<<<< HEAD
 char *val = malloc(sizeof(char *) * str_size);
 =======
 char *tok_size = malloc(sizeof(char *) * str_size);
 >>>>>>> a92d2142684d5558d1cdc3bda5a0845624058eba
+=======
+char *tok_size = malloc(sizeof(char) * str_size);
+>>>>>>> f20d057461cd281f40ef23bfec7490ec495e75e6
 
-if (tok_size == NULL)
-{
-	perror("tokinization error\n");
-	exit(0);
-}
 delimiters = "\t\r\n\a";
 
-*parsed = strtok(dir_str, delimiters);
+parsed = (char *)strtok(dir_str, delimiters);
 for (; parsed != NULL; parsed++)
 if (indx_cnt >= str_size)
 {
 str_size = (str_size + 1024);
 <<<<<<< HEAD
+<<<<<<< HEAD
 tok_size = realloc((void *)val, (size_t)tok_size);
 for (indx_cnt = 0; (tok_size[indx_cnt] = parsed) != 0; indx_cnt++)
 =======
 tok_size = realloc(sizeof(char *) * str_size, tok_size);
+=======
+tok_size = realloc(sizeof(char) * str_size, *tok_size);
+if (tok_size == NULL)
+{
+	perror("tokinization error \n");
+	exit(0);
+}
+>>>>>>> f20d057461cd281f40ef23bfec7490ec495e75e6
 for (indx_cnt = 0; (tok_size[indx_cnt] = *parsed) != 0; indx_cnt++)
 >>>>>>> a92d2142684d5558d1cdc3bda5a0845624058eba
 {
@@ -48,10 +60,13 @@ free(tok_size);
 parsed = strtok(NULL, delimiters);
 }
 tok_size[indx_cnt] = 0;
-return (tok_size);
 free(tok_size);
 free(parsed);
+<<<<<<< HEAD
 free(val);
+=======
+free(tok_size);
+>>>>>>> f20d057461cd281f40ef23bfec7490ec495e75e6
 }
 return (0);
 }
