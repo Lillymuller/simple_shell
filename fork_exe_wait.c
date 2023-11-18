@@ -20,11 +20,12 @@ if (child_pid <= 0)
 {
 perror("Error\n");
 }
-if (execve(cmd[0], cmd, eco) == -1)
+if (execve(cmd[0], cmd, (char **)eco) == -1)
 {
 	free(cmd[0]);
 	free(cmd);
 	free(eco);
+	free(arg);
 	exit(EXIT_FAILURE);
 }
 else

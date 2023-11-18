@@ -6,27 +6,27 @@
  * Return: the tokenized string
  */
 
-char *par_strtok(char *dir_str)
+char **par_strtok(char *dir_str)
 {
 int str_size = 1024;
 int indx_cnt = 0;
 char *delimiters;
 char *parsed;
-char *tok_size = malloc(sizeof(char *) * str_size);
+char *tok_size = malloc(sizeof(char) * str_size);
 
-if (tok_size == NULL)
-{
-	perror("tokinization error\n");
-	exit(0);
-}
 delimiters = "\t\r\n\a";
 
-*parsed = strtok(dir_str, delimiters);
+parsed = (char *)strtok(dir_str, delimiters);
 for (; parsed != NULL; parsed++)
 if (indx_cnt >= str_size)
 {
 str_size = (str_size + 1024);
-tok_size = realloc(sizeof(char *) * str_size, tok_size);
+tok_size = realloc(sizeof(char) * str_size, *tok_size);
+if (tok_size == NULL)
+{
+	perror("tokinization error \n");
+	exit(0);
+}
 for (indx_cnt = 0; (tok_size[indx_cnt] = *parsed) != 0; indx_cnt++)
 {
 if (tok_size == NULL)
@@ -38,9 +38,9 @@ free(tok_size);
 parsed = strtok(NULL, delimiters);
 }
 tok_size[indx_cnt] = 0;
-return (tok_size);
 free(tok_size);
 free(parsed);
+free(tok_size);
 }
 return (0);
 }

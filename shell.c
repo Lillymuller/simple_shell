@@ -9,10 +9,10 @@ int main(int arc, char **argv)
 {
 	char *RD_line;
 	char **PARSE_ARGS;
-	int paths = 0;
+	char *paths = NULL;
 	char *env = getenv("ENV");
 	int indx = 0;
-	char *new_env = malloc(strlen(env) + strlen((char *)paths) + 2);
+	char *new_env = malloc(strlen(env) + strlen(paths) + 2);
 	int Status;
 	(void)arc;
 
@@ -46,10 +46,10 @@ int main(int arc, char **argv)
 			if (!YE_strcmp(PARSE_ARGS[0], "env"))
 			{
 				YE_env(env);
-				free((char *)PARSE_ARGS[0]);
+				free(PARSE_ARGS[0]);
 			}
 		}
-		paths = handle_path((char *)PARSE_ARGS[0], env);
+		paths = handle_path(PARSE_ARGS[0], env);
 		{
 			strcpy(new_env, env);
 			strcat(new_env, "/");

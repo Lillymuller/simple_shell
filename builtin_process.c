@@ -18,17 +18,17 @@ char *commands[3] = {
 	"exits\0",
 };
 
-void (*SBfun[]) (char **) = {
+void *(*SBfun[]) (char **) = {
 	&YE_cd,
 	&YE_pwd,
 	&YE_exits,
 };
+
 int collect_SB(void);
 
-return (sizeof(commands) / sizeof(char *));
+return (void *)(sizeof(commands) / sizeof(char *);
 
 free(x);
-free(commands);
 return (0);
 }
 
@@ -42,22 +42,25 @@ int builtin_process(char *cmd)
 char *eco = NULL;
 char **argvs = NULL;
 int indx = 0;
+char **x = NULL;
 char **args = malloc(sizeof("cmd") + 1);
-void (*SBfun[3]) (char **);
 
 strcpy(args[0], "cmd");
-while (indx < call_back((char *)x))
+while (call_back((char **)x) != NULL)
 {
 if (strcmp(cmd, x[indx]) == 0)
 {
-return (*SBfun[indx](&cmd));
-indx++;
-}
-return (fork_exe_wait(args, eco, argvs);
+return (*(*SBfun[indx](&cmd)));
+indx++;}
+
+return (fork_exe_wait(args, eco, argvs));
 }
 free(args);
+free(eco);
+free(argvs);
 return (0);
 }
+
 
 /**
 *This - code is a long one that shows

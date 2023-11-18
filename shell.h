@@ -21,7 +21,7 @@ int Fopen(void);
 char *YE_read_line(void);
 char **par_strtok(char *dir_str);
 int fork_exe_wait(char **cmd, char *eco, char **args);
-int handle_path(char *directive, char *Abs_path);
+char * handle_path(char *directive, char *Abs_path);
 void *YE_cd(char **cmd);
 void *YE_pwd(char **cmd);
 void *YE_exits(char **EXIT_ARGS);

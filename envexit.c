@@ -8,19 +8,31 @@
 
 void *YE_exits(char **EXIT_ARGS)
 {
-char *endptr;
-char *status[] = NULL;
-int abort = 0;
-if (!status[1])
+char *status = NULL;
+char str[100];
+char *abort = strtok(str, " ");
+
+while (1)
 {
-exit(abort);
-}
-else
+write (1, "cisfun$ ", 8);
+if (fgets(str, sizeof(str), stdin) == NULL)
 {
-EXIT_ARGS = strtol(status[1], &endptr, 10);
+break;
 }
-exit((char **)EXIT_ARGS);
+if (strcmp(abort, "Ctrl-D") == 0)
+{
+status = YE_exits(EXIT_ARGS);
+exit(*status);
 }
+system(str);
+if (status != NULL)
+{
+printf("%s\n", status);
+}
+}
+return (0);
+}
+
 
 /**
 * YE_env - finds the path
@@ -30,16 +42,16 @@ exit((char **)EXIT_ARGS);
 
 int YE_env(char *env)
 {
-        char *indx = NULL;
+        int indx = 0;
 	int count = 0;
 
-	if (env[indx] == 0)
+	if (env[indx] == '\0')
 	{
 		perror("Error finding the path....");
 	}
 	else
 	{
-		write(1, env[indx], count);
+		write(1, &env[indx], count);
 		write(1, "\n", 1);
 	}
 	free(env);
