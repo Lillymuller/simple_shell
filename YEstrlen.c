@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * YE_strlen -prints string length
+ * YE_strlen - prints string length
  * @n: string length input
  * Return: length of string
  */

@@ -1,20 +1,5 @@
 The README.md file includes the detailed descriptions of each project.
 
-/**
- * fopen - Opens a file in read mode, allocates memory for the file contents, reads the file contents using `fgets()`, closes the file, prints the number of characters read, and returns 0
- * @param fname: The name of the file to open.
- * @param buff_size: The size of the buffer to allocate for the file contents.
- * @return: 0 on success, or -1 on failure.
- */
-
-/**
- * Reads data from the standard input stream (stdin) until the end of the file is reached. It allocates memory to store the read data and returns a pointer to the allocated memory. The allocated size in bytes is stored in the provided 'memosize' variable.
- *
- * @param memosize: A pointer to an integer variable that will store the allocated size of the read data in bytes.
- * @return: A pointer to the allocated memory containing the read data, or NULL on error.
- */
-
-
 Ab_path - hold the path of the directives and files the user entered
 duplicate - we are duplicating the path to tekonize it
 dir_size - it holds the length of the command the user enterd

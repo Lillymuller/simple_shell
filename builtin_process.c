@@ -26,9 +26,10 @@ void *(*SBfun[]) (char **) = {
 
 int collect_SB(void);
 
-return (void *)(sizeof(commands) / sizeof(char *);
+return ((void *)(sizeof(commands) / sizeof(char *)));
 
 free(x);
+free(SBfun);
 return (0);
 }
 
@@ -45,26 +46,22 @@ int indx = 0;
 char **x = NULL;
 char **args = malloc(sizeof("cmd") + 1);
 
+void *(*SBfun[]) (char **) = {
+&YE_cd,
+&YE_pwd,
+&YE_exits,
+};
+
 strcpy(args[0], "cmd");
 while (call_back((char **)x) != NULL)
 {
 if (strcmp(cmd, x[indx]) == 0)
 {
-<<<<<<< HEAD
-return (*SBfun[indx](&cmd));
+return ((long)(*(SBfun[indx]))(&cmd));
 indx++;
 }
-<<<<<<< HEAD
-return (fork_exe_wait(args, eco, cmd));
-=======
-return (fork_exe_wait(args, eco, argvs);
->>>>>>> a92d2142684d5558d1cdc3bda5a0845624058eba
-=======
-return (*(*SBfun[indx](&cmd)));
-indx++;}
 
 return (fork_exe_wait(args, eco, argvs));
->>>>>>> f20d057461cd281f40ef23bfec7490ec495e75e6
 }
 free(args);
 free(eco);

@@ -19,18 +19,9 @@
 int main(int arc, char **argv);
 int Fopen(void);
 char *YE_read_line(void);
-<<<<<<< HEAD
 char **par_strtok(char *dir_str, char **tok_size);
-int fork_exe_wait(char **cmd, char **eco, char **arg);
-=======
-char **par_strtok(char *dir_str);
 int fork_exe_wait(char **cmd, char *eco, char **args);
-<<<<<<< HEAD
->>>>>>> a92d2142684d5558d1cdc3bda5a0845624058eba
-int handle_path(char *directive, char *Abs_path);
-=======
-char * handle_path(char *directive, char *Abs_path);
->>>>>>> f20d057461cd281f40ef23bfec7490ec495e75e6
+char *handle_path(char *directive, char *Abs_path);
 void *YE_cd(char **cmd);
 void *YE_pwd(char **cmd);
 void *YE_exits(char **EXIT_ARGS);
