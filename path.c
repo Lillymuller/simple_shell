@@ -16,7 +16,6 @@ char *handle_path(char *directive, char *Abs_path)
 	size_t tok_size = 1024;
 	char *file_locate = malloc(dir_size + tok_size + 2);
 
-
 	if (file_locate == NULL)
 		fprintf(stderr, "Failed to allocate memory for file_locate.\n");
 	return (0);
@@ -49,7 +48,6 @@ char *handle_path(char *directive, char *Abs_path)
 	tokenize = strtok(NULL, ":");
 	free(duplicate);
 	free(tokenize);
-	free(file_locate);
 	return (0);
 }
 

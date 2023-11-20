@@ -11,40 +11,45 @@ char **par_strtok(char *dir_str, char **tok_size)
 {
 int str_size = 1024;
 int indx_cnt = 0;
-char *delimiters = NULL;
-char *parsed = NULL;
-char *val = malloc(sizeof(char *) * str_size);
+char *delimiters;
+char *parsed;
+char **val = malloc(sizeof(char *) * str_size);
 
+if (val == NULL)
+{
+	perror("Allocation Error\n");
+	exit(EXIT_FAILURE); }
 delimiters = "\t\r\n\a";
-
 parsed = (char *)strtok(dir_str, delimiters);
-for (; parsed != NULL; parsed++)
+while (parsed != NULL)
+{
 if (indx_cnt >= str_size)
 {
 str_size = (str_size + 1024);
-tok_size = realloc((void *)val, (size_t)tok_size);
+tok_size = realloc((void *)val, sizeof(char *) * str_size);
 if (tok_size == NULL)
 {
 	perror("tokinization error \n");
-	exit(0);
+	exit(EXIT_FAILURE); }
+val = tok_size;
 }
-for (indx_cnt = 0; (tok_size[indx_cnt] = parsed) != 0; indx_cnt++)
+val[indx_cnt] = strdup(parsed);
+if (val[indx_cnt] == NULL)
 {
+perror("Memory allocation error\n");
+exit(EXIT_FAILURE); }
 if (tok_size == NULL)
 {
 perror("Error\n");
-exit(EXIT_FAILURE);
-free(tok_size);
-}
-parsed = strtok(NULL, delimiters);
-}
-tok_size[indx_cnt] = 0;
+exit(EXIT_FAILURE); }
+parsed = strtok(NULL, delimiters); }
+val[indx_cnt] = NULL;
+return (val);
 free(tok_size);
 free(parsed);
 free(val);
 }
-return (0);
-}
+
 
 /**
 *This - code takes a string of input of stream

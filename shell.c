@@ -11,18 +11,17 @@ char *RD_line = NULL;
 char **PARSE_ARGS = NULL;
 char *paths = NULL;
 char *env = getenv("ENV");
+char *new_env = malloc((size_t)YE_strlen(env) + (size_t)YE_strlen(":") + 1);
 int Status = 0, indx = 0;
-char *new_env = malloc(strlen(env) + strlen(paths) + 2);
 char *delimiters = 0;
 char *envPtr = 0;
 (void)arc;
+
 while (1)
 {
 if (isatty(STDIN_FILENO))
 write(1, "\n", 1);
-exit(Status);
 RD_line = YE_read_line();
-; for (indx = 0; RD_line != NULL; indx++)
 PARSE_ARGS = par_strtok(RD_line, (void *)delimiters);
 if (PARSE_ARGS == NULL)
 free(RD_line);
@@ -31,22 +30,23 @@ continue;
 if (YE_strcmp(PARSE_ARGS[0], "exit") == 0 || YE_strcmp
 (PARSE_ARGS[1], "exit\n") == 0)
 YE_exits(PARSE_ARGS);
-free(PARSE_ARGS[indx]);
-if (!YE_strcmp(PARSE_ARGS[0], "env"))
+free(PARSE_ARGS[0]);
+if (!YE_strcmp(PARSE_ARGS[0], env))
 YE_env((void *)envPtr);
 free(PARSE_ARGS[0]);
-paths = handle_path(PARSE_ARGS[0], env); {
+if (new_env == NULL)
+fprintf(stderr, "Failed to allocate memory\n");
+exit(1);
 strcpy(new_env, env);
 strcat(new_env, "/");
-putenv(new_env); }
+putenv(new_env);
 Status = (fork_exe_wait(PARSE_ARGS, env, argv));
 indx++;
 if ((int)Status == 0)
 free(PARSE_ARGS[0]);
 free(PARSE_ARGS);
 free(RD_line);
-free(new_env);
-}
+free(paths); }
 return (0); }
 
 
