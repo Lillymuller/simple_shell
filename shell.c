@@ -7,8 +7,8 @@
 */
 int main(int arc, char **argv)
 {
-char *RD_line;
-char **PARSE_ARGS;
+char *RD_line = NULL;
+char **PARSE_ARGS = NULL;
 char *paths = NULL;
 char *env = getenv("ENV");
 int Status = 0, indx = 0;

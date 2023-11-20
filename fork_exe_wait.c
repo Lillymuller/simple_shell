@@ -12,7 +12,7 @@
 int fork_exe_wait(char **cmd, char *eco, char **arg)
 {
 pid_t child_pid;
-int status;
+int status = 0;
 
 child_pid = fork();
 

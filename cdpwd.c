@@ -28,7 +28,7 @@ return (0);
 
 void *YE_pwd(char **cmd)
 {
-size_t AB = 300;
+size_t AB = 1024;
 if (cmd[0] == NULL)
 {
 perror("Error");

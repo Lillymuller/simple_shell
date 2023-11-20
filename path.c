@@ -10,10 +10,12 @@
 char *handle_path(char *directive, char *Abs_path)
 {
 	struct stat stat_buff;
-	char *duplicate;
-	char *tokenize;
-	int dir_size = 0, tok_size = 0;
+	char *duplicate = NULL;
+	char *tokenize = NULL;
+	size_t dir_size = 1024;
+	size_t tok_size = 1024;
 	char *file_locate = malloc(dir_size + tok_size + 2);
+
 
 	if (file_locate == NULL)
 		fprintf(stderr, "Failed to allocate memory for file_locate.\n");

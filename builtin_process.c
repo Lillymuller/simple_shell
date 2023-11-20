@@ -46,18 +46,14 @@ int indx = 0;
 char **x = NULL;
 char **args = malloc(sizeof("cmd") + 1);
 
-void *(*SBfun[]) (char **) = {
-&YE_cd,
-&YE_pwd,
-&YE_exits,
-};
+void *(*SBfun[3]) (char **);
 
 strcpy(args[0], "cmd");
 while (call_back((char **)x) != NULL)
 {
 if (strcmp(cmd, x[indx]) == 0)
 {
-return ((long)(*(SBfun[indx]))(&cmd));
+return ((long)(void *)(*(SBfun[indx]))(&cmd));
 indx++;
 }
 

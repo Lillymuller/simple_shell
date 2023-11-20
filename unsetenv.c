@@ -9,7 +9,7 @@
 int unsetenv(const char *var)
 {
 char *possessed_val = getenv(var);
-int indx;
+int indx = 0;
 
 for (indx = 0; indx < 1; indx++)
 {

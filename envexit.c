@@ -9,7 +9,7 @@
 void *YE_exits(char **EXIT_ARGS)
 {
 char *status = NULL;
-char str[100];
+char str[1024];
 char *abort = strtok(str, " ");
 
 while (1)

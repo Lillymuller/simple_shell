@@ -8,11 +8,12 @@
 
 void *YE_strlen(char *n)
 {
-int node;
-
+int node = 0;
+n = malloc(sizeof(char *));
 for (node = 0; n[node] != '\0'; node++)
 {
 }
 
+free(n);
 return (n);
 }

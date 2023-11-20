@@ -11,8 +11,8 @@ char **par_strtok(char *dir_str, char **tok_size)
 {
 int str_size = 1024;
 int indx_cnt = 0;
-char *delimiters;
-char *parsed;
+char *delimiters = NULL;
+char *parsed = NULL;
 char *val = malloc(sizeof(char *) * str_size);
 
 delimiters = "\t\r\n\a";
