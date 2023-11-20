@@ -47,7 +47,6 @@ char *handle_path(char *directive, char *Abs_path)
 	tokenize = strtok(NULL, ":");
 	free(duplicate);
 	free(tokenize);
-	free(file_locate);
 	return (0);
 }
 
