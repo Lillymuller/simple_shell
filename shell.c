@@ -11,7 +11,7 @@ char *RD_line;
 char **PARSE_ARGS;
 char *paths = NULL;
 char *env = getenv("ENV");
-char *new_env = malloc((size_t)YE_strlen(env) + (size_t)YE_strlen("/") + 1);
+char *new_env = malloc((size_t)YE_strlen(env) + (size_t)YE_strlen(":") + 1);
 int Status = 0, indx = 0;
 char *delimiters = 0;
 char *envPtr = 0;
