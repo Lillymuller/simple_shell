@@ -17,8 +17,11 @@ char *delim = NULL;
 
 while (1)
 {
-if (isatty(STDIN_FILENO))
-write(1, "\n", 1);
+if(isatty(STDIN_FILENO) == 1)
+{
+write(1, "cisfun$ ", 8);
+fflush(stdout);
+}
 RD_line = YE_read_line();
 ; for (indx = 0; RD_line != NULL; indx++)
 PARSE_ARGS = par_strtok(RD_line, (void *)delim);
