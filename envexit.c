@@ -37,6 +37,7 @@ return (0);
 /**
 * YE_env - finds the path
 * @env: command input
+* @count: count input
 * Return: Always 0
 */
 
