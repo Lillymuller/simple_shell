@@ -25,7 +25,7 @@ char *handle_path(char *directive, char *Abs_path);
 void *YE_cd(char **cmd);
 void *YE_pwd(char **cmd);
 void *YE_exits(char **EXIT_ARGS);
-int YE_env(char *env[]);
+char *YE_env(char **env, char *count);
 int builtin_process(char *cmd);
 int setenv(const char *var, const char *worth, int overwrite);
 int unsetenv(const char *var);

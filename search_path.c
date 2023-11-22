@@ -9,7 +9,7 @@
 char *env_path(char **environ)
 {
 int j = 0, i = 0;
-int length;
+int length = 1024;
 char *Abs_path = malloc(sizeof(length));
 
 while (environ[i] && strncmp(environ[i], "PATH=", 5) != 0)

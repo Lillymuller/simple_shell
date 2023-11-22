@@ -9,7 +9,7 @@
 
 void *YE_strcpy(char *field, char *tank)
 {
-int a;
+int a = 0;
 int b = 0;
 
 for (a = 0; tank[a] != '\0'; a++)
