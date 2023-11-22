@@ -40,23 +40,17 @@ return (0);
 * Return: Always 0
 */
 
-int YE_env(char *env[])
+char *YE_env(char **env, char *count)
 {
 int indx = 0;
-int count = 0;
-char *envPtr = env[indx];
 
-if (*env[indx] == '\0')
+for (indx = 0; env[indx] != 0; indx++)
 {
-perror("Error finding the path....");
-}
-else
+if (strncmp(env[indx], count, strlen(count)) == 0)
 {
-write(1, &env[indx], count);
-write(1, "\n", 1);
+return ((char *)(env[indx] + strlen(count) + 1));
 }
-free(env);
-free(envPtr);
+}
 return (0);
 }
 

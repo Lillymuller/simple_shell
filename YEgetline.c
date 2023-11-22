@@ -11,7 +11,7 @@ char *YE_read_line(void)
 	char *prompt = "cisfun$ ";
 	size_t memo_size = 1024;
 
-	if (isatty(STDIN_FILENO) == 1)
+	if (isatty(0))
 	{
 		write(1, prompt, 8);
 	}
