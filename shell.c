@@ -12,7 +12,7 @@ char **PARSE_ARGS = NULL;
 char *env = getenv("ENV");
 int Status = 0, indx = 0;
 char *paths = NULL;
-char *delimiters = NULL;
+char *delim = NULL;
 (void)arc;
 
 while (1)
@@ -21,10 +21,10 @@ if (isatty(STDIN_FILENO))
 write(1, "\n", 1);
 RD_line = YE_read_line();
 ; for (indx = 0; RD_line != NULL; indx++)
-PARSE_ARGS = par_strtok(RD_line, (void *)delimiters);
+PARSE_ARGS = par_strtok(RD_line, (void *)delim);
 if (PARSE_ARGS == NULL)
 free(RD_line);
-free(delimiters);
+free(delim);
 continue;
 if (YE_strcmp(PARSE_ARGS[0], "exit") == 0 || YE_strcmp
 (PARSE_ARGS[1], "exit\n") == 0)
