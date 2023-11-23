@@ -12,14 +12,11 @@ char *handle_path(char *directive, char *Abs_path)
 	struct stat stat_buff;
 	char *duplicate;
 	char *tokenize;
-	char file_locate[1024];
+	char *file_locate = NULL;
 
-	if (file_locate == NULL)
-		fprintf(stderr, "Failed to allocate memory for file_locate.\n");
-	return ("");
 	if (stat(directive, &stat_buff) == 0)
 		return ("");
-	Abs_path = getenv("ENV");
+	Abs_path = (char *)getenv("ENV");
 	if (!Abs_path)
 	{
 		fprintf(stderr, "Path Doesn't Exist");
@@ -31,15 +28,22 @@ char *handle_path(char *directive, char *Abs_path)
 	return ("");
 	tokenize = strtok(duplicate, ":");
 	if (file_locate == NULL)
-		free(Abs_path);
+	{
+        fprintf(stderr, "Failed to allocate memory for file_locate.\n");
+        return ("");
+	}
+	else
+	{
+	free(Abs_path);
 	return ("");
+	}
 	do {
 		strncpy(file_locate, tokenize, sizeof(file_locate) - 1);
-		strcat(file_locate, "/");
-		strcpy(file_locate, directive);
+		YE_strcat(file_locate, "/");
+		YE_strcpy(file_locate, directive);
 	} while (tokenize != NULL);
 	if (stat(file_locate, &stat_buff) == 0)
-		free(duplicate);
+	free(duplicate);
 	return ("");
 	tokenize = strtok(NULL, ":");
 	free(duplicate);
