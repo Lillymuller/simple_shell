@@ -5,6 +5,7 @@
 * @argv: argument variables
 * Return: Always 0
 */
+
 int main(int arc, char **argv)
 {
 char *RD_line = NULL;
@@ -29,8 +30,7 @@ if (PARSE_ARGS == NULL)
 free(RD_line);
 free(delim);
 continue;
-if (YE_strcmp(PARSE_ARGS[0], "exit") == 0 || YE_strcmp
-(PARSE_ARGS[1], "exit\n") == 0)
+if (YE_strcmp(PARSE_ARGS[0], "exit") == 0)
 YE_exits(PARSE_ARGS);
 if (!YE_strcmp(PARSE_ARGS[0], env))
 printf("%s\n", env);
@@ -46,9 +46,10 @@ indx++;
 if ((int)Status == 0)
 free(PARSE_ARGS[0]);
 free(PARSE_ARGS);
-free(RD_line); }
-return (0); }
-
+free(RD_line);
+return (0);
+}
+}
 
 /**
 * This - is our main.RD_LINE - read input from stream

@@ -11,11 +11,10 @@ char *YE_read_line(void)
 	size_t memo_size = 0;
 
 	if (getline(&RD_LINE, &memo_size, stdin) == -1)
+	{
 	free(RD_LINE);
 	return (RD_LINE);
-	RD_LINE = NULL;
-
-	free(RD_LINE);
+	}
 	return (0);
 }
 
