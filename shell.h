@@ -20,7 +20,7 @@ int main(int arc, char **argv);
 int Fopen(void);
 char *YE_read_line(void);
 char **par_strtok(char *dir_str, char **tok_size);
-int fork_exe_wait(char **cmd, char *eco, char **args);
+int fork_exe_wait(char **cmd, char *eco, char **args, char *paths);
 char *handle_path(char *directive, char *Abs_path);
 void *YE_cd(char **cmd);
 void *YE_pwd(char **cmd);

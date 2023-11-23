@@ -18,11 +18,6 @@ char *delim = NULL;
 
 while (1)
 {
-if(isatty(STDIN_FILENO) == 1)
-{
-write(1, "cisfun$ ", 8);
-fflush(stdout);
-}
 RD_line = YE_read_line();
 ; for (indx = 0; RD_line != NULL; indx++)
 PARSE_ARGS = par_strtok(RD_line, (void *)delim);
@@ -33,22 +28,27 @@ continue;
 if (YE_strcmp(PARSE_ARGS[0], "exit") == 0)
 YE_exits(PARSE_ARGS);
 if (!YE_strcmp(PARSE_ARGS[0], env))
-printf("%s\n", env);
+YE_env((char **)env, paths);
 paths = handle_path(PARSE_ARGS[0], env);
 if (strcmp((char *)paths, "") != 0)
 {
-fork_exe_wait((char **)paths, env, PARSE_ARGS);
+Status = fork_exe_wait(PARSE_ARGS, env, argv, paths);
 free(paths);
 }
-perror("Error");
-Status = (fork_exe_wait(PARSE_ARGS, env, argv));
 indx++;
-if ((int)Status == 0)
+
+if (paths == 0)
 free(PARSE_ARGS[0]);
 free(PARSE_ARGS);
-free(RD_line);
-return (0);
+
+if (isatty(STDIN_FILENO))
+{
+write(1, "\n", 1);
+exit(Status);
 }
+free(RD_line);
+}
+return (Status);
 }
 
 /**
