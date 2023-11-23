@@ -30,7 +30,7 @@ free(RD_line);
 free(delim);
 continue;
 if (YE_strcmp(PARSE_ARGS[0], "exit") == 0 || YE_strcmp
-(PARSE_ARGS[1], "exit\n") == 0)
+(PARSE_ARGS[1], "exit\n") == NULL)
 YE_exits(PARSE_ARGS);
 if (!YE_strcmp(PARSE_ARGS[0], env))
 printf("%s\n", env);
