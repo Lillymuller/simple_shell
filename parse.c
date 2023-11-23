@@ -46,7 +46,6 @@ perror("Memory allocation error\n");
 exit(EXIT_FAILURE); }
 if (tok_size == NULL)
 {
-perror("Error\n");
 exit(EXIT_FAILURE); }
 parsed = strtok(NULL, delimiters);
 }
