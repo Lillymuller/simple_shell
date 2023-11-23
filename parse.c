@@ -11,6 +11,7 @@ char **par_strtok(char *dir_str, char **tok_size)
 {
 int str_size = 1024;
 int indx_cnt = 0;
+int i = 0;
 char *delimiters;
 char *parsed;
 char **val = malloc(sizeof(char *) * str_size);
@@ -18,11 +19,16 @@ char **val = malloc(sizeof(char *) * str_size);
 if (val == NULL)
 {
 	perror("Allocation Error\n");
-	exit(EXIT_FAILURE); }
+	exit(EXIT_FAILURE);
+}
 delimiters = "\t\r\n\a";
 parsed = (char *)strtok(dir_str, delimiters);
 while (parsed != NULL)
 {
+for (i = 0; i < indx_cnt; i++)
+{
+val[i] = parsed;
+}
 if (indx_cnt >= str_size)
 {
 str_size = (str_size + 1024);
