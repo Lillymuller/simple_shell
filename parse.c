@@ -48,11 +48,12 @@ if (tok_size == NULL)
 {
 perror("Error\n");
 exit(EXIT_FAILURE); }
-parsed = strtok(NULL, delimiters); }
+parsed = strtok(NULL, delimiters);
+}
 val[indx_cnt] = NULL;
+free(parsed);
 return (val);
 free(tok_size);
-free(parsed);
 free(val);
 }
 

@@ -20,7 +20,7 @@ if (fgets(str, sizeof(str), stdin) == NULL)
 {
 break;
 }
-if (strcmp(abort, "Ctrl-D") == 0)
+if (strcmp(abort, "exit") == 0)
 {
 stat = YE_exits(EXIT_ARGS);
 exit(*stat);
