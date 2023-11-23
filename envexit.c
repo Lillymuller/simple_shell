@@ -3,12 +3,13 @@
 /**
 * YE_exits - exits the process
 * @EXIT_ARGS: command entered
+* @read: command read input
 * Return: Always 0
 */
 
 void *YE_exits(char **EXIT_ARGS)
 {
-char *status = NULL;
+char *stat = NULL;
 char str[1024];
 char *abort = strtok(str, " ");
 
@@ -21,14 +22,15 @@ break;
 }
 if (strcmp(abort, "Ctrl-D") == 0)
 {
-status = YE_exits(EXIT_ARGS);
-exit(*status);
+stat = YE_exits(EXIT_ARGS);
+exit(*stat);
 }
 system(str);
-if (status != NULL)
+if (stat != NULL)
 {
-printf("%s\n", status);
+printf("%s\n", stat);
 }
+free(EXIT_ARGS);
 }
 return (0);
 }

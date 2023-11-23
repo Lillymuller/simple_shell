@@ -6,10 +6,11 @@
  * @cmd: this the arguments
  * @eco: this is the enviroment.
  * @arg: argument entered.
+ * @paths: path input
  * Return: Always 0
  */
 
-int fork_exe_wait(char **cmd, char *eco, char **arg)
+int fork_exe_wait(char **cmd, char *eco, char **arg, char *paths)
 {
 pid_t child_pid;
 int status = 0;
@@ -26,6 +27,7 @@ if (execve(cmd[0], cmd, (char **)eco) == -1)
 	free(cmd);
 	free(eco);
 	free(arg);
+	free(paths);
 	exit(EXIT_FAILURE);
 }
 else
