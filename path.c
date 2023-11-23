@@ -17,30 +17,30 @@ char *handle_path(char *directive, char *Abs_path)
 	if (stat(directive, &stat_buff) == 0)
 	{
 		system(directive);
-		return ("");
+		return (0);
 	}
 	Abs_path = (char *)getenv("ENV");
 	if (!Abs_path)
 	{
 		fprintf(stderr, "Path Doesn't Exist");
-		return ("");
+		return (0);
 	}
 	duplicate = strdup((char *)Abs_path);
 	if (duplicate == NULL)
 	{
 		perror("Error");
-		return ("");
+		return (0);
 	}
 	tokenize = strtok(duplicate, ":");
 	if (file_locate == NULL)
 	{
         fprintf(stderr, "Failed to allocate memory for file_locate.\n");
-        return ("");
+        return (0);
 	}
 	else
 	{
 	free(Abs_path);
-	return ("");
+	return (0);
 	}
 	do {
 		strncpy(file_locate, tokenize, sizeof(file_locate) - 1);
@@ -51,12 +51,12 @@ char *handle_path(char *directive, char *Abs_path)
 	{
 	system(file_locate);
 	free(duplicate);
-	return ("");
+	return (0);
 	}
 	tokenize = strtok(NULL, ":");
 	free(duplicate);
 	free(tokenize);
-	return ("");
+	return (0);
 }
 
 /**
