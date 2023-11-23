@@ -15,7 +15,10 @@ char *handle_path(char *directive, char *Abs_path)
 	char *file_locate = NULL;
 
 	if (stat(directive, &stat_buff) == 0)
+	{
+		system(directive);
 		return ("");
+	}
 	Abs_path = (char *)getenv("ENV");
 	if (!Abs_path)
 	{
@@ -24,8 +27,10 @@ char *handle_path(char *directive, char *Abs_path)
 	}
 	duplicate = strdup((char *)Abs_path);
 	if (duplicate == NULL)
+	{
 		perror("Error");
-	return ("");
+		return ("");
+	}
 	tokenize = strtok(duplicate, ":");
 	if (file_locate == NULL)
 	{
@@ -43,8 +48,11 @@ char *handle_path(char *directive, char *Abs_path)
 		YE_strcpy(file_locate, directive);
 	} while (tokenize != NULL);
 	if (stat(file_locate, &stat_buff) == 0)
+	{
+	system(file_locate);
 	free(duplicate);
 	return ("");
+	}
 	tokenize = strtok(NULL, ":");
 	free(duplicate);
 	free(tokenize);
