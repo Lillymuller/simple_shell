@@ -6,8 +6,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
-# include <fcntl.h>
-# include <errno.h>
 
 /*---system calls---*/
 # include <sys/types.h>
@@ -16,26 +14,10 @@
 
 /*---our prototypes---*/
 
-int main(int arc, char **argv);
-int Fopen(void);
-char *YE_read_line(void);
-char **par_strtok(char *dir_str, char **tok_size);
-int fork_exe_wait(char **cmd, char *eco, char **args, char *paths);
-char *handle_path(char *directive, char *Abs_path);
-void *YE_cd(char **cmd);
-void *YE_pwd(char **cmd);
-void *YE_exits(char **EXIT_ARGS);
-char *YE_env(char **env, char *count);
-int builtin_process(char *cmd);
-int setenv(const char *var, const char *worth, int overwrite);
-int unsetenv(const char *var);
-void *read_directive(void);
-void *YE_strcat(char *field, char *tank);
-int YE_strcmp(char *x, char *y);
-void *YE_strcpy(char *field, char *tank);
-void *YE_strlen(char *n);
-void *YE_strncmp(char *x, char *y);
-char *env_path(char **environ);
-void *call_back(char **x);
+int main(int argc, char *argv[]);
+void run_shell(void);
+char *get_path(char *new_file);
+int check_slash(const char *str);
+char *get_location(char *org_path, char *new_file);
 
 #endif
