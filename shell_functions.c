@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * run_shell - runs the shell
- * Return: void
+ * main - runs the shell function
+ * @argc: argument count
+ * @argv: array of argument values
+ * Return: 0 Always Success
  */
 
-char *get_path(char *new_file);
-
-void run_shell(void)
+int main(int argc, char *argv[])
 {
 	char *RD_line = NULL;
 	char *parsed;
@@ -18,21 +18,19 @@ void run_shell(void)
 	int i = 0;
 	int Status;
 	char **val;
+	(void)argc, (void)argv;
 
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "Cisfun$ ", 8);
-
 		get_line = getline(&RD_line, &memo_size, stdin);
 		if (get_line == -1)
 		{
 			exit(0);
 		}
-
 		parsed = strtok(RD_line, " \n");
 		val = malloc(sizeof(char *) * 1024);
-
 		while (parsed)
 		{
 			val[i] = parsed;
@@ -40,10 +38,8 @@ void run_shell(void)
 			i++;
 		}
 		val[i] = NULL;
-
 		org_path = get_path(val[0]);
 		child_pid = fork();
-
 		if (child_pid == -1)
 		{
 			perror("Failed to create child_pid");
@@ -58,11 +54,9 @@ void run_shell(void)
 			}
 		}
 		else
-		{
 			wait(&Status);
-		}
 	}
 	free(org_path);
 	free(RD_line);
-	return;
+	return (0);
 }
