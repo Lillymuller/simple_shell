@@ -17,7 +17,7 @@ char *get_path(char *new_file)
 		return (NULL);
 	}
 	abs_path = get_location(org_path, new_file);
-
+	
 	if (abs_path == NULL)
 	{
 		write(2, new_file, strlen(new_file));

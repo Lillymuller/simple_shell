@@ -14,7 +14,7 @@
 
 /*---our prototypes---*/
 
-int main(int argc, char *argv[]);
+int main(int argc, char **argv);
 char *get_path(char *new_file);
 int check_slash(const char *str);
 char *get_location(char *org_path, char *new_file);

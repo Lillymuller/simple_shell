@@ -7,7 +7,7 @@
  * Return: 0 Always Success
  */
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
 	char *RD_line = NULL;
 	char *RD_dup = NULL;
@@ -18,8 +18,7 @@ int main(int argc, char *argv[])
 	ssize_t get_line;
 	int i = 0, j;
 	int Status;
-	char **val;
-	(void)argc, (void)argv;
+	(void)argc;
 
 	while (1)
 	{
@@ -30,7 +29,7 @@ int main(int argc, char *argv[])
 		{
 			exit(-1);
 		}
-		RD_dup = malloc(sizeof(char) * get_line);
+		RD_dup = malloc(sizeof(char) * (get_line + 1));
 		if (RD_dup == NULL)
 		{
 			perror("Error: memory allocation");
@@ -46,18 +45,23 @@ int main(int argc, char *argv[])
 		}
 		i++;
 
-		val = malloc(sizeof(char *) * i);
+		argv = malloc(sizeof(char *) * i);
 		parsed = strtok(RD_dup, " \n");
 
 		for (j = 0; parsed != NULL; j++)
 		{
-			val[j] = malloc(sizeof(char) * strlen(parsed));
-			strcpy(val[j], parsed);
+			argv[j] = malloc(sizeof(char) * (strlen(parsed) + 1));
+			strcpy(argv[j], parsed);
 			parsed = strtok(NULL, " \n");
 		}
-		val[j] = NULL;
+		argv[j] = NULL;
 
-		org_path = get_path(val[0]);
+		org_path = get_path(argv[0]);
+		if (org_path == NULL)
+		{
+			perror("command not found\n");
+			continue;
+		}
 		child_pid = fork();
 		if (child_pid == -1)
 		{
@@ -67,7 +71,7 @@ int main(int argc, char *argv[])
 		if (child_pid == 0)
 		{
 			printf("The creation was successful\n");
-			if (execve(org_path, val, NULL) == -1)
+			if (execve(org_path, argv, NULL) == -1)
 			{
 				perror("Failed to execute");
 				exit(87);
@@ -77,7 +81,7 @@ int main(int argc, char *argv[])
 			wait(&Status);
 	}
 	free(RD_dup);
-	free(val);
+	free(argv);
 	free(org_path);
 	free(RD_line);
 	return (0);
