@@ -35,6 +35,10 @@ strcat(path_memo, new_file);
 strcat(path_memo, "\0");
 if (stat(path_memo, &file_path) == 0 && access(path_memo, X_OK) == 0)
 {
+path_memo = strdup(new_file);
+if (!path_memo)
+	return (NULL);
+printf("Absolute Executable Path: %s\n", path_memo);
 return (path_memo);
 }
 free(path_memo);
